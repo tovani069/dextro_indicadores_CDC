@@ -974,7 +974,7 @@
 
 <body>
     <nav class="navbar">
-        <button class="nav-toggle" onclick="toggleSidebar()"></button>
+        <button class="nav-toggle" onclick="toggleSidebar()">☰</button>
         <div class="nav-brand">
             <div class="codec-logo-wrap">
                 <img class="codec-logo-light"
@@ -1029,7 +1029,7 @@
                 <button class="clear-btn" onclick="clearFilters()">× Limpar filtros</button>
             </div>
         </div>
-        <main class="main" id="mainContent"></main>
+        <main class="main" id="mainContent"><div style="display:flex;align-items:center;justify-content:center;height:60vh;color:var(--text3);font-size:14px">Carregando...</div></main>
     </div>
 
     <footer class="footer"
@@ -1057,7 +1057,7 @@
     </footer>
 
     <script>
-        Chart.register(ChartDataLabels);
+        try { Chart.register(ChartDataLabels); } catch (e) { console.warn('Chart.js ou datalabels não carregou:', e); }
 
         // ESTADO 
         const S = { dir: 'Geral', persp: '', nivel: '', status: '', q: '', col: 'ind', sortDir: 1 };
@@ -1202,8 +1202,15 @@
             return Math.min(200, (ac / r.metaNum) * 100);
         }
         function destroyChart(id) {
-            const c = Chart.getChart(id);
-            if (c) c.destroy();
+            if (typeof Chart === 'undefined') return;
+            try { const c = Chart.getChart(id); if (c) c.destroy(); } catch (e) { }
+        }
+        function safeChart(id, config) {
+            if (typeof Chart === 'undefined') return null;
+            try {
+                destroyChart(id);
+                return new Chart(document.getElementById(id), config);
+            } catch (e) { return null; }
         }
 
         // FILTERED 
@@ -1323,7 +1330,7 @@
 
             // Receita
             destroyChart('dafReceitaChart');
-            new Chart(document.getElementById('dafReceitaChart'), {
+            safeChart('dafReceitaChart', {
                 type: 'bar', data: {
                     labels: months,
                     datasets: [
@@ -1335,7 +1342,7 @@
 
             // Despesa
             destroyChart('dafDespesaChart');
-            new Chart(document.getElementById('dafDespesaChart'), {
+            safeChart('dafDespesaChart', {
                 type: 'bar', data: {
                     labels: months,
                     datasets: [
@@ -1347,7 +1354,7 @@
 
             // Comparativo
             destroyChart('dafComparativoChart');
-            new Chart(document.getElementById('dafComparativoChart'), {
+            safeChart('dafComparativoChart', {
                 type: 'bar', data: {
                     labels: months,
                     datasets: [
@@ -1391,7 +1398,7 @@
                     nd: rows.filter(r => getStatus(r) === 'nd').length
                 };
                 destroyChart('donutStatus');
-                new Chart(document.getElementById('donutStatus'), {
+                safeChart('donutStatus', {
                     type: 'doughnut', data: {
                         labels: ['No Alvo', 'Em Risco', 'Atenção', 'Sem Dados'],
                         datasets: [{ data: Object.values(statusCounts), backgroundColor: ['#00C8A0', '#FF5C6A', '#FF9B00', '#8890B0'], borderWidth: 0, cutout: '62%' }]
@@ -1405,7 +1412,7 @@
                 const persp = {}; rows.forEach(r => { persp[r.persp] = (persp[r.persp] || 0) + 1; });
                 const perspColors = Object.keys(persp).map(k => PERSP_COLORS[k] || '#9096B0');
                 destroyChart('donutPersp');
-                new Chart(document.getElementById('donutPersp'), {
+                safeChart('donutPersp', {
                     type: 'doughnut', data: {
                         labels: Object.keys(persp), datasets: [{ data: Object.values(persp), backgroundColor: perspColors, borderWidth: 0, cutout: '62%' }]
                     },
@@ -1418,7 +1425,7 @@
                 const niveis = { 'Estratégico': 0, 'Tático': 0, 'Operacional': 0, 'Não definido': 0 };
                 rows.forEach(r => { const k = r.nivel || 'Não definido'; niveis[k] = (niveis[k] || 0) + 1; });
                 destroyChart('barNivel');
-                new Chart(document.getElementById('barNivel'), {
+                safeChart('barNivel', {
                     type: 'bar', data: {
                         labels: Object.keys(niveis), datasets: [{ data: Object.values(niveis), backgroundColor: ['#6C3FFF', '#4F8EFF', '#00C8A0', '#8890B0'], borderRadius: 4 }]
                     },
@@ -1433,7 +1440,7 @@
                 rows.filter(r => getStatus(r) === 'risk').forEach(r => { riskByDir[r.dir] = (riskByDir[r.dir] || 0) + 1; });
                 const riskLabels = Object.keys(riskByDir); const riskVals = Object.values(riskByDir);
                 destroyChart('barRisco');
-                new Chart(document.getElementById('barRisco'), {
+                safeChart('barRisco', {
                     type: 'bar', data: {
                         labels: riskLabels, datasets: [{
                             data: riskVals,
@@ -1479,6 +1486,7 @@
         }
 
         function renderLineCards(rows) {
+            if (typeof Chart === 'undefined') return;
             // Destroy existing
             Object.keys(LINE_CHARTS).forEach(k => { const c = Chart.getChart(k); if (c) c.destroy(); delete LINE_CHARTS[k]; });
             const cands = lineDirFilter === 'Todas' ? rows : rows.filter(r => r.dir === lineDirFilter);
@@ -1947,9 +1955,11 @@
 
         // INIT 
         (function init() {
+            try {
             const now = new Date();
             const monthNames = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez']; document.getElementById('dateChip').textContent = 'Atualizado ' + monthNames[now.getMonth()] + '/' + now.getFullYear();
             render();
+            } catch (e) { document.getElementById('mainContent').innerHTML = '<div style="padding:40px;text-align:center"><h2>Erro ao carregar</h2><p style="color:var(--text3)">' + e.message + '</p></div>'; }
         })();
 
 
@@ -2017,17 +2027,18 @@
 
         let _empCharts = {};
         function destroyEmpCharts() {
-            Object.values(_empCharts).forEach(id => { const ch = Chart.getChart(id); if (ch) ch.destroy(); });
+            if (typeof Chart === 'undefined') { _empCharts = {}; return; }
+            Object.values(_empCharts).forEach(id => { try { const ch = Chart.getChart(id); if (ch) ch.destroy(); } catch (e) { } });
             _empCharts = {};
         }
 
         function mkChart(id, cfg) {
+            if (typeof Chart === 'undefined') return null;
             const el = document.getElementById(id);
-            if (!el) return;
-            const ex = Chart.getChart(el);
-            if (ex) ex.destroy();
+            if (!el) return null;
+            try { const ex = Chart.getChart(el); if (ex) ex.destroy(); } catch (e) { }
             _empCharts[id] = id;
-            return new Chart(el, cfg);
+            try { return new Chart(el, cfg); } catch (e) { return null; }
         }
 
         function renderEmpresas(mc) {
@@ -2607,6 +2618,7 @@
             const irCol = v => v > 40 ? 'rgba(255,92,106,0.85)' : v > 25 ? 'rgba(255,155,0,0.85)' : 'rgba(0,200,160,0.85)';
 
             const upd = (id, data, datasetIdx = 0) => {
+                if (typeof Chart === 'undefined') return;
                 const ch = Chart.getChart(id); if (ch) {
                     if (Array.isArray(datasetIdx)) {
                         datasetIdx.forEach((di, i) => { if (ch.data.datasets[di]) ch.data.datasets[di].data = data[i]; });
@@ -2738,7 +2750,7 @@
         let _ditecTab = 'castanhal';
         let _ditecCharts = {};
         function _destroyDitecCharts() {
-            Object.keys(_ditecCharts).forEach(k => { const ch = Chart.getChart(k); if (ch) ch.destroy(); });
+            if (typeof Chart !== 'undefined') Object.keys(_ditecCharts).forEach(k => { try { const ch = Chart.getChart(k); if (ch) ch.destroy(); } catch (e) { } });
             _ditecCharts = {};
         }
 
@@ -3072,6 +3084,7 @@
 
         // ── CHARTS ────────────────────────────────────────────────────────────────────
         function buildDitecCharts(obra, isDk) {
+            if (typeof Chart === 'undefined') return;
             const gc = isDk ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)';
             const tc = isDk ? '#6E748A' : '#9096B0';
             const tf = { family: 'IBM Plex Mono', size: 9 };
@@ -3459,6 +3472,7 @@
         // ── CHARTS ───────────────────────────────────────────────────────────────────
         let _licitCharts = {};
         function buildLicitCharts(isDk) {
+            if (typeof Chart === 'undefined') return;
             const gc = isDk ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)';
             const tc = isDk ? '#6E748A' : '#9096B0';
             const tf = { family: 'IBM Plex Mono', size: 9 };
@@ -3540,7 +3554,7 @@
         let _contCharts = {};
         let _contFilter = 'todos';
         function _destroyContCharts() {
-            Object.keys(_contCharts).forEach(k => { const ch = Chart.getChart(k); if (ch) ch.destroy(); });
+            if (typeof Chart !== 'undefined') Object.keys(_contCharts).forEach(k => { try { const ch = Chart.getChart(k); if (ch) ch.destroy(); } catch (e) { } });
             _contCharts = {};
         }
 
@@ -3710,6 +3724,7 @@
         }
 
         function buildContCharts(isDk) {
+            if (typeof Chart === 'undefined') return;
             const gc = isDk ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)';
             const tc = isDk ? '#6E748A' : '#9096B0';
             const tf = { family: 'IBM Plex Mono', size: 9 };
@@ -3839,7 +3854,7 @@
 
         let _orcCharts = {};
         function _destroyOrcCharts() {
-            Object.keys(_orcCharts).forEach(function (k) { var ch = Chart.getChart(k); if (ch) ch.destroy(); });
+            if (typeof Chart !== 'undefined') Object.keys(_orcCharts).forEach(function (k) { try { var ch = Chart.getChart(k); if (ch) ch.destroy(); } catch (e) {} });
             _orcCharts = {};
         }
 
@@ -4138,6 +4153,7 @@
         }
 
         function buildOrcCharts(isDk) {
+            if (typeof Chart === 'undefined') return;
             var gc = isDk ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)';
             var tc = isDk ? '#6E748A' : '#9096B0';
             var tf = { family: 'IBM Plex Mono', size: 9 };
@@ -4388,7 +4404,7 @@
         let _pnSelInd = null; // indicador selecionado para detalhe
 
         function _destroyPNCharts() {
-            Object.keys(_pnCharts).forEach(function (k) { var ch = Chart.getChart(k); if (ch) ch.destroy(); });
+            if (typeof Chart !== 'undefined') Object.keys(_pnCharts).forEach(function (k) { try { var ch = Chart.getChart(k); if (ch) ch.destroy(); } catch (e) {} });
             _pnCharts = {};
         }
 
@@ -4582,6 +4598,7 @@
         }
 
         function buildPNCharts(isDk, gc, tc) {
+            if (typeof Chart === 'undefined') return;
             var tf = { family: 'IBM Plex Mono', size: 9 };
             var anosLabels = ['2026', '2027', '2028', '2029', '2030'];
 
