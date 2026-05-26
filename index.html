@@ -989,8 +989,7 @@
         <div class="nav-right">
             <input type="file" id="fileImport" accept=".xlsx,.xls" style="display:none" onchange="importExcel(event)">
             <button id="btnImport" onclick="document.getElementById('fileImport').click()"
-                style="font-size:12px;font-family:'IBM Plex Sans',sans-serif;background:var(--accent);color:#fff;border:none;padding:7px 14px;border-radius:8px;cursor:pointer;font-weight:600;display:flex;align-items:center;gap:6px;transition:opacity .2s"
-                onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">⬆ Importar Dados</button>
+                class="theme-btn" style="font-size:14px;padding:6px 10px">⬆</button>
             <span class="date-chip mono" id="dateChip"></span>
             <button class="theme-btn" onclick="toggleTheme()" id="themeBtn"></button>
         </div>
@@ -1855,7 +1854,7 @@
             const file = event.target.files[0];
             if (!file) return;
             const btn = document.getElementById('btnImport');
-            if (btn) { btn.textContent = '⏳ Importando...'; btn.disabled = true; }
+            if (btn) { btn.textContent = '⏳'; btn.disabled = true; }
             const reader = new FileReader();
             reader.onload = function (e) {
                 try {
@@ -1929,10 +1928,10 @@
                     // Resetar input para permitir reimportação do mesmo arquivo
                     event.target.value = '';
                     render();
-                    if (btn) { btn.textContent = '✔ Importado!'; btn.disabled = false; setTimeout(() => { btn.textContent = '⬆ Importar Dados'; }, 3000); }
+                    if (btn) { btn.textContent = '✔'; btn.disabled = false; setTimeout(() => { btn.textContent = '⬆'; }, 3000); }
                     alert(`✅ Importação concluída!\n\n• Meses detectados: ${window.DASH_MONTHS.join(', ')}\n• Indicadores atualizados: ${matched} de ${DB.length}`);
                 } catch (err) {
-                    if (btn) { btn.textContent = '⬆ Importar Dados'; btn.disabled = false; }
+                    if (btn) { btn.textContent = '⬆'; btn.disabled = false; }
                     event.target.value = '';
                     alert('Erro ao processar o arquivo:\n' + err.message);
                 }
