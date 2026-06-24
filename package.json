@@ -1,0 +1,6 @@
+{
+  "name": "dextro-indicadores-cdc",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Dashboard de Indicadores Codec. Salvar = commit no GitHub (sem dependências externas)."
+}

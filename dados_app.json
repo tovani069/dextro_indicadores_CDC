@@ -1,0 +1,4054 @@
+{
+  "db": [
+    {
+      "id": 1,
+      "dir": "DAF",
+      "persp": "2. Finanças",
+      "obj": "2.1 Alcançar sustentabilidade financeira e eficiência orçamentária",
+      "ind": "Receita total (projetada x realizada)",
+      "meta": "R$ 1.857.725",
+      "metaNum": 1857725.28,
+      "jan": 362027.81,
+      "fev": 512258.54,
+      "mar": 335151.43,
+      "abr": 0,
+      "nivel": "Estratégico",
+      "ok": false,
+      "risk": false
+    },
+    {
+      "id": 2,
+      "dir": "DAF",
+      "persp": "2. Finanças",
+      "obj": "2.1 Alcançar sustentabilidade financeira e eficiência orçamentária",
+      "ind": "Despesas total (projetadas x realizada)",
+      "meta": "R$ 5.400.000",
+      "metaNum": 5400000,
+      "jan": 130079.92,
+      "fev": 320701.57,
+      "mar": 1191967.18,
+      "abr": 322844.56,
+      "nivel": "Estratégico",
+      "ok": false,
+      "risk": false
+    },
+    {
+      "id": 3,
+      "dir": "DAF",
+      "persp": "2. Finanças",
+      "obj": "2.1 Alcançar sustentabilidade financeira e eficiência orçamentária",
+      "ind": "Orçamento desenvolvimento local",
+      "meta": "Aprovado",
+      "metaNum": null,
+      "jan": null,
+      "fev": null,
+      "mar": null,
+      "abr": null,
+      "nivel": "Estratégico",
+      "ok": false,
+      "risk": true
+    },
+    {
+      "id": 4,
+      "dir": "DAF",
+      "persp": "2. Finanças",
+      "obj": "2.1 Alcançar sustentabilidade financeira e eficiência orçamentária",
+      "ind": "Orçamento implantação e revitalização",
+      "meta": "Aprovado",
+      "metaNum": null,
+      "jan": null,
+      "fev": null,
+      "mar": null,
+      "abr": null,
+      "nivel": "Estratégico",
+      "ok": false,
+      "risk": true
+    },
+    {
+      "id": 5,
+      "dir": "DAF",
+      "persp": "2. Finanças",
+      "obj": "2.1 Alcançar sustentabilidade financeira e eficiência orçamentária",
+      "ind": "Orçamento promoção para atração de investimento",
+      "meta": "Aprovado",
+      "metaNum": null,
+      "jan": null,
+      "fev": null,
+      "mar": null,
+      "abr": null,
+      "nivel": "Estratégico",
+      "ok": false,
+      "risk": true
+    },
+    {
+      "id": 6,
+      "dir": "DAIN",
+      "persp": "3. Mercado e Clientes",
+      "obj": "3.1 Fortalecer imagem e posicionamento da Companhia no mercado",
+      "ind": "Eventos",
+      "meta": "5",
+      "metaNum": 5,
+      "jan": 0,
+      "fev": 0,
+      "mar": 0,
+      "abr": 0,
+      "nivel": "Estratégico",
+      "ok": false,
+      "risk": false
+    },
+    {
+      "id": 7,
+      "dir": "DAIN",
+      "persp": "3. Mercado e Clientes",
+      "obj": "3.1 Fortalecer imagem e posicionamento da Companhia no mercado",
+      "ind": "Ações promocionais",
+      "meta": "3",
+      "metaNum": 3,
+      "jan": 0,
+      "fev": 0,
+      "mar": 0,
+      "abr": 0,
+      "nivel": null,
+      "ok": false,
+      "risk": false
+    },
+    {
+      "id": 8,
+      "dir": "DAIN",
+      "persp": "3. Mercado e Clientes",
+      "obj": "3.1 Fortalecer imagem e posicionamento da Companhia no mercado",
+      "ind": "Melhoria de ambiente",
+      "meta": "18",
+      "metaNum": 18,
+      "jan": 0,
+      "fev": 0,
+      "mar": 0,
+      "abr": 0,
+      "nivel": null,
+      "ok": false,
+      "risk": false
+    },
+    {
+      "id": 9,
+      "dir": "DAIN",
+      "persp": "3. Mercado e Clientes",
+      "obj": "3.2 Aumentar eficiência nos resultados de comercialização",
+      "ind": "Empresas apoiadas",
+      "meta": "18",
+      "metaNum": 18,
+      "jan": 0,
+      "fev": 3,
+      "mar": 4,
+      "abr": 1,
+      "nivel": "Estratégico",
+      "ok": false,
+      "risk": false
+    },
+    {
+      "id": 10,
+      "dir": "DAIN",
+      "persp": "3. Mercado e Clientes",
+      "obj": "3.2 Aumentar eficiência nos resultados de comercialização",
+      "ind": "Total Ações: Promoção do Estado para Atração de Investimentos",
+      "meta": "79",
+      "metaNum": 79,
+      "jan": null,
+      "fev": null,
+      "mar": null,
+      "abr": null,
+      "nivel": "Estratégico",
+      "ok": false,
+      "risk": true
+    },
+    {
+      "id": 11,
+      "dir": "DAIN",
+      "persp": "3. Mercado e Clientes",
+      "obj": "3.2 Aumentar eficiência nos resultados de comercialização",
+      "ind": "Outreach",
+      "meta": "18",
+      "metaNum": 18,
+      "jan": 0,
+      "fev": 0,
+      "mar": 0,
+      "abr": 0,
+      "nivel": "Estratégico",
+      "ok": false,
+      "risk": false
+    },
+    {
+      "id": 12,
+      "dir": "DAIN",
+      "persp": "3. Mercado e Clientes",
+      "obj": "3.1 Fortalecer imagem e posicionamento da Companhia no mercado",
+      "ind": "Empresas atendidas",
+      "meta": "19",
+      "metaNum": 19,
+      "jan": 0,
+      "fev": 8,
+      "mar": 10,
+      "abr": 1,
+      "nivel": null,
+      "ok": false,
+      "risk": false
+    },
+    {
+      "id": 13,
+      "dir": "DAIN",
+      "persp": "3. Mercado e Clientes",
+      "obj": "3.2 Aumentar eficiência nos resultados de comercialização",
+      "ind": "Venda de áreas (m²)",
+      "meta": "Definir meta",
+      "metaNum": null,
+      "jan": 0,
+      "fev": 0,
+      "mar": 0,
+      "abr": 0,
+      "nivel": "Estratégico",
+      "ok": false,
+      "risk": false
+    },
+    {
+      "id": 14,
+      "dir": "DAIN",
+      "persp": "3. Mercado e Clientes",
+      "obj": "3.2 Aumentar eficiência nos resultados de comercialização",
+      "ind": "Venda de áreas (R$)",
+      "meta": "Definir meta",
+      "metaNum": null,
+      "jan": 0,
+      "fev": 0,
+      "mar": 0,
+      "abr": 0,
+      "nivel": "Estratégico",
+      "ok": false,
+      "risk": false
+    },
+    {
+      "id": 15,
+      "dir": "DERI",
+      "persp": "4. Processos",
+      "obj": "4.1 Alcançar eficiência na gestão de processos visando implantar cultura de excelência",
+      "ind": "Alcance PPA DERI 2026 - Etapas previstas",
+      "meta": "40",
+      "metaNum": 40,
+      "jan": 0,
+      "fev": 0,
+      "mar": 9,
+      "abr": 0,
+      "nivel": "Estratégico",
+      "ok": false,
+      "risk": false
+    },
+    {
+      "id": 16,
+      "dir": "DERI",
+      "persp": "4. Processos",
+      "obj": "3.1 Fortalecer imagem e posicionamento da Companhia no mercado",
+      "ind": "Guia do investidor",
+      "meta": "24",
+      "metaNum": 24,
+      "jan": 0,
+      "fev": 0,
+      "mar": 0,
+      "abr": 0,
+      "nivel": "Tático",
+      "ok": false,
+      "risk": false
+    },
+    {
+      "id": 17,
+      "dir": "ASCOM",
+      "persp": "3. Mercado e Clientes",
+      "obj": "3.1 Fortalecer imagem e posicionamento da Companhia no mercado",
+      "ind": "Campanhas realizadas",
+      "meta": "223",
+      "metaNum": 223,
+      "jan": 15,
+      "fev": 22,
+      "mar": 16,
+      "abr": 0,
+      "nivel": null,
+      "ok": false,
+      "risk": false
+    },
+    {
+      "id": 18,
+      "dir": "ASCOM",
+      "persp": "3. Mercado e Clientes",
+      "obj": "3.1 Fortalecer imagem e posicionamento da Companhia no mercado",
+      "ind": "Matérias por ano",
+      "meta": "Definir meta",
+      "metaNum": null,
+      "jan": 11,
+      "fev": 22,
+      "mar": 18,
+      "abr": 10,
+      "nivel": null,
+      "ok": false,
+      "risk": false
+    },
+    {
+      "id": 19,
+      "dir": "DIJUR",
+      "persp": "4. Processos",
+      "obj": "4.1 Alcançar eficiência na gestão de processos",
+      "ind": "Retomadas administrativas",
+      "meta": "Definir meta",
+      "metaNum": null,
+      "jan": 0,
+      "fev": 0,
+      "mar": 0,
+      "abr": 0,
+      "nivel": null,
+      "ok": false,
+      "risk": false
+    },
+    {
+      "id": 20,
+      "dir": "DIJUR",
+      "persp": "4. Processos",
+      "obj": "4.1 Alcançar eficiência na gestão de processos",
+      "ind": "Processos judiciais atendidos no prazo",
+      "meta": "Definir meta",
+      "metaNum": null,
+      "jan": 0,
+      "fev": 0,
+      "mar": 0,
+      "abr": 0,
+      "nivel": null,
+      "ok": false,
+      "risk": false
+    },
+    {
+      "id": 21,
+      "dir": "DIJUR",
+      "persp": "4. Processos",
+      "obj": "4.2 Implantar Infraestrutura e Manutenção dos Distritos Industriais",
+      "ind": "Regularização fundiária",
+      "meta": "Definir meta",
+      "metaNum": null,
+      "jan": 0,
+      "fev": 0,
+      "mar": 0,
+      "abr": 0,
+      "nivel": null,
+      "ok": false,
+      "risk": false
+    }
+  ],
+  "planoDb": [
+    {
+      "status": "Concluído",
+      "atividade": "Aplicar selo comemorativo 50 anos da CODEC em identidade visual 2026",
+      "responsavel": "ASCOM",
+      "prazo": "30/03/2026",
+      "bsc": "3. Mercado e Clientes",
+      "prioridade": "Normal",
+      "dias_atraso": 0,
+      "vence_em": null
+    },
+    {
+      "status": "Aguardando",
+      "atividade": "Criar planejamento do retrospecto Codec: relatório visual de gestão dos últimos 08 anos",
+      "responsavel": "ASCOM",
+      "prazo": "29/05/2026",
+      "bsc": "3. Mercado e Clientes",
+      "prioridade": "Normal",
+      "dias_atraso": 0,
+      "vence_em": 36
+    },
+    {
+      "status": "Aguardando",
+      "atividade": "Concluir e apresentar o novo TR para modernização do portal Invest Pará",
+      "responsavel": "ASCOM",
+      "prazo": "30/04/2026",
+      "bsc": "3. Mercado e Clientes",
+      "prioridade": "Alta",
+      "dias_atraso": 0,
+      "vence_em": 7
+    },
+    {
+      "status": "Aguardando",
+      "atividade": "Concluir e apresentar o novo TR para material gráfico",
+      "responsavel": "ASCOM",
+      "prazo": "30/04/2026",
+      "bsc": "4. Processos",
+      "prioridade": "Normal",
+      "dias_atraso": 0,
+      "vence_em": 7
+    },
+    {
+      "status": "Aguardando",
+      "atividade": "Elaborar Manual de Controle Interno da Companhia",
+      "responsavel": "CCI",
+      "prazo": "01/06/2026",
+      "bsc": "4. Processos",
+      "prioridade": "Normal",
+      "dias_atraso": 0,
+      "vence_em": 39
+    },
+    {
+      "status": "Aguardando",
+      "atividade": "Implementar rotina de publicação no site institucional das informações do Diário Oficial",
+      "responsavel": "CCI",
+      "prazo": "30/04/2026",
+      "bsc": "3. Mercado e Clientes",
+      "prioridade": "Normal",
+      "dias_atraso": 0,
+      "vence_em": 7
+    },
+    {
+      "status": "Aguardando",
+      "atividade": "Elaborar Plano Anual de Treinamento da CODEC",
+      "responsavel": "DAF",
+      "prazo": "30/04/2026",
+      "bsc": "4. Processos",
+      "prioridade": "Alta",
+      "dias_atraso": 0,
+      "vence_em": 7
+    },
+    {
+      "status": "Aguardando",
+      "atividade": "Retomar processo de normatização dos procedimentos internos da Companhia",
+      "responsavel": "DAF",
+      "prazo": "29/05/2026",
+      "bsc": "4. Processos",
+      "prioridade": "Normal",
+      "dias_atraso": 0,
+      "vence_em": 36
+    },
+    {
+      "status": "Aguardando",
+      "atividade": "Implementar programa de cursos de reciclagem e capacitação para servidores",
+      "responsavel": "DAF",
+      "prazo": "01/06/2026",
+      "bsc": "5. Pessoas",
+      "prioridade": "Normal",
+      "dias_atraso": 0,
+      "vence_em": 39
+    },
+    {
+      "status": "Em Atraso",
+      "atividade": "Levantar necessidades para contratação de empresa de assessoria de TR e licitações",
+      "responsavel": "DAF",
+      "prazo": "-",
+      "bsc": "4. Processos",
+      "prioridade": "Alta",
+      "dias_atraso": 23,
+      "vence_em": null
+    },
+    {
+      "status": "Em Atraso",
+      "atividade": "Criar grupo de avaliação interna para contribuições e melhoria dos TRs",
+      "responsavel": "DAF",
+      "prazo": "-",
+      "bsc": "4. Processos",
+      "prioridade": "Normal",
+      "dias_atraso": 23,
+      "vence_em": null
+    },
+    {
+      "status": "Em Atraso",
+      "atividade": "Criar ferramenta de atualização automática de créditos a receber",
+      "responsavel": "DAF",
+      "prazo": "-",
+      "bsc": "4. Processos",
+      "prioridade": "Alta",
+      "dias_atraso": 23,
+      "vence_em": null
+    },
+    {
+      "status": "Concluído",
+      "atividade": "Implementar sistema de medição dos projetos de investimentos atraídos pela CODEC",
+      "responsavel": "DAIN",
+      "prazo": "01/06/2026",
+      "bsc": "4. Processos",
+      "prioridade": "Normal",
+      "dias_atraso": 0,
+      "vence_em": null
+    },
+    {
+      "status": "Concluído",
+      "atividade": "Desenvolver carta de boas vindas com base de dados de acompanhamento de novos empreendimentos",
+      "responsavel": "DAIN",
+      "prazo": "01/06/2026",
+      "bsc": "3. Mercado e Clientes",
+      "prioridade": "Normal",
+      "dias_atraso": 0,
+      "vence_em": null
+    },
+    {
+      "status": "Em Atraso",
+      "atividade": "Elaborar planejamento de participação de feiras e eventos (datas, locais, orçamento)",
+      "responsavel": "DAIN",
+      "prazo": "31/03/2026",
+      "bsc": "3. Mercado e Clientes",
+      "prioridade": "Alta",
+      "dias_atraso": 23,
+      "vence_em": null
+    },
+    {
+      "status": "Aguardando",
+      "atividade": "Elaborar TR para contratação de empresa para Plano de Negócios do Condomínio Industrial de Castanhal",
+      "responsavel": "DAIN",
+      "prazo": "30/04/2026",
+      "bsc": "3. Mercado e Clientes",
+      "prioridade": "Normal",
+      "dias_atraso": 0,
+      "vence_em": 7
+    },
+    {
+      "status": "Em Atraso",
+      "atividade": "Atualizar o Plano de Atração de Novos Negócios (PANN)",
+      "responsavel": "DAIN",
+      "prazo": "-",
+      "bsc": "3. Mercado e Clientes",
+      "prioridade": "Alta",
+      "dias_atraso": 23,
+      "vence_em": null
+    },
+    {
+      "status": "Em Atraso",
+      "atividade": "Levantar necessidades para contratação de consultoria para revisão de normativos",
+      "responsavel": "DERI",
+      "prazo": "-",
+      "bsc": "4. Processos",
+      "prioridade": "Normal",
+      "dias_atraso": 23,
+      "vence_em": null
+    },
+    {
+      "status": "Em Atraso",
+      "atividade": "Viabilizar/Contratar diagramação dos guias do investidor via contrato de TI",
+      "responsavel": "DERI",
+      "prazo": "-",
+      "bsc": "3. Mercado e Clientes",
+      "prioridade": "Normal",
+      "dias_atraso": 23,
+      "vence_em": null
+    },
+    {
+      "status": "Em Atraso",
+      "atividade": "Atualizar em BI todas as áreas disponíveis no Distrito Industrial de Castanhal",
+      "responsavel": "DEXTRO",
+      "prazo": "17/04/2026",
+      "bsc": "3. Mercado e Clientes",
+      "prioridade": "Alta",
+      "dias_atraso": 6,
+      "vence_em": null
+    },
+    {
+      "status": "Em Atraso",
+      "atividade": "Consolidar em BI base georreferenciada dos lotes",
+      "responsavel": "DEXTRO",
+      "prazo": "17/04/2026",
+      "bsc": "3. Mercado e Clientes",
+      "prioridade": "Alta",
+      "dias_atraso": 6,
+      "vence_em": null
+    },
+    {
+      "status": "Em Atraso",
+      "atividade": "Elaborar arcabouço normativo interno da CODEC",
+      "responsavel": "DIJUR",
+      "prazo": "-",
+      "bsc": "4. Processos",
+      "prioridade": "Normal",
+      "dias_atraso": 23,
+      "vence_em": null
+    },
+    {
+      "status": "Em Atraso",
+      "atividade": "Judicializar processo da Plena caso não apresente proposta",
+      "responsavel": "DIJUR",
+      "prazo": "-",
+      "bsc": "4. Processos",
+      "prioridade": "Alta",
+      "dias_atraso": 23,
+      "vence_em": null
+    },
+    {
+      "status": "Em Atraso",
+      "atividade": "Apresentar novo modelo de minuta de contratos da Codec",
+      "responsavel": "DIJUR",
+      "prazo": "-",
+      "bsc": "4. Processos",
+      "prioridade": "Normal",
+      "dias_atraso": 23,
+      "vence_em": null
+    },
+    {
+      "status": "Aguardando",
+      "atividade": "Elaborar TR para processo licitatório - empresa gerenciadora (Castanhal)",
+      "responsavel": "DITEC",
+      "prazo": "30/04/2026",
+      "bsc": "3. Mercado e Clientes",
+      "prioridade": "Alta",
+      "dias_atraso": 0,
+      "vence_em": 7
+    },
+    {
+      "status": "Aguardando",
+      "atividade": "Elaborar TR para processo licitatório - empresa gerenciadora (Breves)",
+      "responsavel": "DITEC",
+      "prazo": "30/04/2026",
+      "bsc": "3. Mercado e Clientes",
+      "prioridade": "Normal",
+      "dias_atraso": 0,
+      "vence_em": 7
+    },
+    {
+      "status": "Aguardando",
+      "atividade": "Elaborar TR para processo licitatório - empresa gerenciadora (ZPE)",
+      "responsavel": "DITEC",
+      "prazo": "30/04/2026",
+      "bsc": "3. Mercado e Clientes",
+      "prioridade": "Normal",
+      "dias_atraso": 0,
+      "vence_em": 7
+    },
+    {
+      "status": "Em Atraso",
+      "atividade": "Atualizar projeto da ZPE para incluir atualizações e garantir 10% de execução",
+      "responsavel": "DITEC",
+      "prazo": "-",
+      "bsc": "3. Mercado e Clientes",
+      "prioridade": "Alta",
+      "dias_atraso": 23,
+      "vence_em": null
+    },
+    {
+      "status": "Em Atraso",
+      "atividade": "Criar indicador de áreas totalmente disponíveis (sem embaraços)",
+      "responsavel": "DITEC",
+      "prazo": "-",
+      "bsc": "3. Mercado e Clientes",
+      "prioridade": "Normal",
+      "dias_atraso": 23,
+      "vence_em": null
+    },
+    {
+      "status": "Aguardando",
+      "atividade": "Disponibilizar quantitativo total de áreas disponíveis para comercialização",
+      "responsavel": "DITEC",
+      "prazo": "29/05/2026",
+      "bsc": "3. Mercado e Clientes",
+      "prioridade": "Normal",
+      "dias_atraso": 0,
+      "vence_em": 36
+    },
+    {
+      "status": "Aguardando",
+      "atividade": "Criar ferramenta para calcular automaticamente valor de indenização de retomada",
+      "responsavel": "DITEC",
+      "prazo": "24/04/2026",
+      "bsc": "3. Mercado e Clientes",
+      "prioridade": "Alta",
+      "dias_atraso": 0,
+      "vence_em": 1
+    },
+    {
+      "status": "Aguardando",
+      "atividade": "Reativar sistema de controle e monitoramento das deliberações das atas da REDIR",
+      "responsavel": "GABINETE",
+      "prazo": "24/04/2026",
+      "bsc": "4. Processos",
+      "prioridade": "Normal",
+      "dias_atraso": 0,
+      "vence_em": 1
+    },
+    {
+      "status": "Concluído",
+      "atividade": "Realizar levantamento das necessidades tecnológicas e dos processos para apoiar metas estratégicas",
+      "responsavel": "TI",
+      "prazo": "30/04/2026",
+      "bsc": "4. Processos",
+      "prioridade": "Normal",
+      "dias_atraso": 0,
+      "vence_em": null
+    },
+    {
+      "status": "Aguardando",
+      "atividade": "Realizar levantamento de software para as áreas da companhia",
+      "responsavel": "TI",
+      "prazo": "30/04/2026",
+      "bsc": "4. Processos",
+      "prioridade": "Normal",
+      "dias_atraso": 0,
+      "vence_em": 7
+    },
+    {
+      "status": "Em Atraso",
+      "atividade": "Levantar necessidade de software da companhia",
+      "responsavel": "-",
+      "prazo": "-",
+      "bsc": "4. Processos",
+      "prioridade": "Normal",
+      "dias_atraso": 23,
+      "vence_em": null
+    },
+    {
+      "status": "Aguardando",
+      "atividade": "Elaborar parcial do TR para concessão do Porto Seco e AALP",
+      "responsavel": "-",
+      "prazo": "29/05/2026",
+      "bsc": "3. Mercado e Clientes",
+      "prioridade": "Normal",
+      "dias_atraso": 0,
+      "vence_em": 36
+    }
+  ],
+  "dafReceitaProj": [
+    204967,
+    204967,
+    171496,
+    171496,
+    161430,
+    144140,
+    144140,
+    144140,
+    127737,
+    127737,
+    127737,
+    127737
+  ],
+  "dafReceitaReal": [
+    362028,
+    512259,
+    335151,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "dafDespesaProj": [
+    450000,
+    450000,
+    450000,
+    450000,
+    450000,
+    450000,
+    450000,
+    450000,
+    450000,
+    450000,
+    450000,
+    450000
+  ],
+  "dafDespesaReal": [
+    130080,
+    320702,
+    1191967,
+    322845,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "emp": {
+    "kpi": {
+      "total": 255,
+      "ativas": 164,
+      "inativas": 60,
+      "implantacao": 20,
+      "regulares": 165,
+      "irregulares": 79,
+      "retomada": 15,
+      "area_total": 24064552,
+      "tx_atividade": 64.3,
+      "tx_irregularidade": 32.4
+    },
+    "locais": [
+      "DI Ananindeua",
+      "DI Barcarena",
+      "DI Icoaraci"
+    ],
+    "byLocal": {
+      "DI Ananindeua": {
+        "total": 132,
+        "ativa": 77,
+        "inativa": 39,
+        "impl": 12,
+        "regular": 97,
+        "irregular": 31,
+        "area": 4044100,
+        "area_media": 30871,
+        "tx_at": 60.2,
+        "tx_ir": 24.2,
+        "escSim": 94,
+        "escNao": 22,
+        "retomada": 10
+      },
+      "DI Barcarena": {
+        "total": 67,
+        "ativa": 48,
+        "inativa": 7,
+        "impl": 6,
+        "regular": 40,
+        "irregular": 21,
+        "area": 17962359,
+        "area_media": 304447,
+        "tx_at": 78.7,
+        "tx_ir": 34.4,
+        "escSim": 38,
+        "escNao": 23,
+        "retomada": 0
+      },
+      "DI Icoaraci": {
+        "total": 55,
+        "ativa": 39,
+        "inativa": 14,
+        "impl": 2,
+        "regular": 28,
+        "irregular": 27,
+        "area": 2058093,
+        "area_media": 38113,
+        "tx_at": 70.9,
+        "tx_ir": 49.1,
+        "escSim": 41,
+        "escNao": 14,
+        "retomada": 5
+      }
+    },
+    "setores": [
+      "INDÚSTRIA",
+      "SERVIÇOS",
+      "COMÉRCIO",
+      "TRANSPORTE",
+      "LOGÍSTICA",
+      "CONSTRUÇÃO",
+      "ALIMENTOS"
+    ],
+    "bySetor": {
+      "INDÚSTRIA": {
+        "total": 56,
+        "ativa": 39,
+        "inativa": 14,
+        "regular": 46,
+        "irregular": 10,
+        "area": 5257541
+      },
+      "SERVIÇOS": {
+        "total": 31,
+        "ativa": 16,
+        "inativa": 10,
+        "regular": 19,
+        "irregular": 11,
+        "area": 724796
+      },
+      "COMÉRCIO": {
+        "total": 16,
+        "ativa": 7,
+        "inativa": 8,
+        "regular": 9,
+        "irregular": 7,
+        "area": 435121
+      },
+      "TRANSPORTE": {
+        "total": 8,
+        "ativa": 6,
+        "inativa": 0,
+        "regular": 4,
+        "irregular": 3,
+        "area": 234053
+      },
+      "LOGÍSTICA": {
+        "total": 6,
+        "ativa": 3,
+        "inativa": 1,
+        "regular": 5,
+        "irregular": 1,
+        "area": 208849
+      },
+      "CONSTRUÇÃO": {
+        "total": 6,
+        "ativa": 5,
+        "inativa": 0,
+        "regular": 3,
+        "irregular": 2,
+        "area": 141472
+      },
+      "ALIMENTOS": {
+        "total": 5,
+        "ativa": 5,
+        "inativa": 0,
+        "regular": 3,
+        "irregular": 2,
+        "area": 140457
+      }
+    },
+    "areaBuckets": {
+      "labels": [
+        "< 10k m²",
+        "10–25k m²",
+        "25–50k m²",
+        "50–100k m²",
+        "100–500k m²",
+        "> 500k m²"
+      ],
+      "values": [
+        47,
+        74,
+        60,
+        41,
+        16,
+        6
+      ]
+    },
+    "heatmap": {
+      "setores": [
+        "ALIMENTOS",
+        "COMÉRCIO",
+        "CONSTRUÇÃO",
+        "INDÚSTRIA",
+        "LOGÍSTICA",
+        "SERVIÇOS",
+        "TRANSPORTE"
+      ],
+      "locais": [
+        "Ananindeua",
+        "Barcarena",
+        "Icoaraci"
+      ],
+      "values": [
+        [
+          4,
+          1,
+          0
+        ],
+        [
+          14,
+          2,
+          0
+        ],
+        [
+          6,
+          0,
+          0
+        ],
+        [
+          49,
+          6,
+          1
+        ],
+        [
+          6,
+          0,
+          0
+        ],
+        [
+          27,
+          4,
+          0
+        ],
+        [
+          6,
+          2,
+          0
+        ]
+      ]
+    },
+    "retomada": [
+      [
+        "DI Ananindeua",
+        "AMAZON INDÚSTRIA SERV. INC. E ADM. LTDA",
+        "12.832",
+        "REGULAR",
+        "SUJ. RETOMADA"
+      ],
+      [
+        "DI Ananindeua",
+        "AMAZON HEVEA INSUMOS E COMÉRCIO LTDA",
+        "25.875",
+        "REGULAR",
+        "SUJ. RETOMADA"
+      ],
+      [
+        "DI Ananindeua",
+        "AMAZON NATURE",
+        "12.635",
+        "REGULAR",
+        "SUJ. RETOMADA"
+      ],
+      [
+        "DI Ananindeua",
+        "ARIPUANÃ COMPENSADOS LTDA",
+        "42.111",
+        "IRREGULAR",
+        "SUJ. RETOMADA"
+      ],
+      [
+        "DI Ananindeua",
+        "CLPS — COMÉRCIO E LOG. PROD. SIDERÚRGICOS",
+        "15.300",
+        "REGULAR",
+        "SUJ. RETOMADA"
+      ],
+      [
+        "DI Ananindeua",
+        "C-TUB (CONSTRUÇÃO E TUBOS LTDA)",
+        "27.628",
+        "REGULAR",
+        "SUJ. RETOMADA"
+      ],
+      [
+        "DI Ananindeua",
+        "CURTUME BRAGANÇA LTDA",
+        "38.400",
+        "REGULAR",
+        "SUJ. RETOMADA"
+      ],
+      [
+        "DI Ananindeua",
+        "DISMOBRAS (CITY LAR)",
+        "35.430",
+        "REGULAR",
+        "SUJ. RETOMADA"
+      ],
+      [
+        "DI Ananindeua",
+        "FAMA",
+        "55.206",
+        "REGULAR",
+        "SUJ. RETOMADA"
+      ],
+      [
+        "DI Ananindeua",
+        "GAMA LOPES LTDA",
+        "92.075",
+        "REGULAR",
+        "SUJ. RETOMADA"
+      ],
+      [
+        "DI Icoaraci",
+        "MAJONAVE TRANSP. FLUVIAL AMAZÔNICA",
+        "13.666",
+        "IRREGULAR",
+        "SUJ. RETOMADA"
+      ],
+      [
+        "DI Icoaraci",
+        "MAJONAVE TRANSP. FLUVIAL AMAZÔNICA",
+        "59.994",
+        "IRREGULAR",
+        "SUJ. RETOMADA"
+      ],
+      [
+        "DI Icoaraci",
+        "EURO BRASIL LOGÍSTICA LTDA.",
+        "8.000",
+        "IRREGULAR",
+        "SUJ. RETOMADA"
+      ],
+      [
+        "DI Icoaraci",
+        "EDINALDO PEREIRA DA COSTA (PF)",
+        "16.000",
+        "IRREGULAR",
+        "EM RETOMADA JUD"
+      ],
+      [
+        "DI Icoaraci",
+        "FN CRESPO NETO E CIA LTDA.",
+        "115.000",
+        "REGULAR",
+        "EM RETOMADA ADM"
+      ]
+    ]
+  },
+  "empAll": [
+    [
+      "AMAFIBRA - FIBRAS DE SUBSTRATOS DA AMAZÔNIA LTDA",
+      "DI Ananindeua",
+      "ATIVA",
+      "REGULAR",
+      "ALIMENTOS",
+      "38544",
+      "-",
+      "SIM"
+    ],
+    [
+      "AMACOCO-ÁGUA DE COCO DA AMAZÔNIA LTDA",
+      "DI Ananindeua",
+      "ATIVA",
+      "REGULAR",
+      "ALIMENTOS",
+      "21294",
+      "-",
+      "SIM"
+    ],
+    [
+      "AMAFIBRA - FIBRAS DE SUBSTRATOS DA AMZÔNIA LTDA",
+      "DI Ananindeua",
+      "ATIVA",
+      "REGULAR",
+      "ALIMENTOS",
+      "25703",
+      "-",
+      "SIM"
+    ],
+    [
+      "AMAZON INDÚSTRIA SERVIÇOS INCORPORAÇÃO E ADMINISTRAÇÃO LTDA",
+      "DI Ananindeua",
+      "INATIVA",
+      "REGULAR",
+      "SERVIÇOS",
+      "12832",
+      "SUJ. RETOMADA",
+      "SIM"
+    ],
+    [
+      "AMAZON HEVEA INSUMOS E COMÉRCIO LTDA",
+      "DI Ananindeua",
+      "INATIVA",
+      "REGULAR",
+      "SERVIÇOS",
+      "25875",
+      "SUJ. RETOMADA",
+      "SIM"
+    ],
+    [
+      "AMAZON NATURE",
+      "DI Ananindeua",
+      "INATIVA",
+      "REGULAR",
+      "SERVIÇOS",
+      "12635",
+      "SUJ. RETOMADA",
+      "SIM"
+    ],
+    [
+      "ARIPUANÃ COMPENSADOS LTDA",
+      "DI Ananindeua",
+      "INATIVA",
+      "IRREGULAR",
+      "SERVIÇOS",
+      "42111",
+      "SUJ. RETOMADA",
+      "SIM"
+    ],
+    [
+      "ARMAFER SERVIÇO DE CONSTRUÇÃO LTDA - GERDAU",
+      "DI Ananindeua",
+      "ATIVA",
+      "REGULAR",
+      "INDÚSTRIA",
+      "32400",
+      "-",
+      "SIM"
+    ],
+    [
+      "F.P MATOS FABRICAÇÃO DE ARTEFATOS E SERVIÇOS DE MADEIRAS EIRELI",
+      "DI Ananindeua",
+      "ATIVA",
+      "REGULAR",
+      "INDÚSTRIA",
+      "7500",
+      "-",
+      "NÃO"
+    ],
+    [
+      "ADVANTAGE FLORESTAL - RJ PELC JR EIRELLI",
+      "DI Ananindeua",
+      "ATIVA",
+      "REGULAR",
+      "INDÚSTRIA",
+      "21361",
+      "-",
+      "SIM"
+    ],
+    [
+      "BATERIA SHILE",
+      "DI Ananindeua",
+      "ATIVA",
+      "REGULAR",
+      "SERVIÇOS",
+      "5400",
+      "-",
+      "SIM"
+    ],
+    [
+      "BENTO DO BRASIL TRANSPORTES E LOGÍSTICAS LTDA",
+      "DI Ananindeua",
+      "ATIVA",
+      "REGULAR",
+      "LOGÍSTICA",
+      "10324",
+      "-",
+      "SIM"
+    ],
+    [
+      "BRILASA (BRITAGEM E LAMINAÇÃO)",
+      "DI Ananindeua",
+      "ATIVA",
+      "REGULAR",
+      "CONSTRUÇÃO",
+      "27055",
+      "-",
+      "SIM"
+    ],
+    [
+      "INMAP-EQUIPAMENTOS M.A PAIXÃO IND. E COM. EIRELI-ME",
+      "DI Ananindeua",
+      "ATIVA",
+      "IRREGULAR",
+      "SERVIÇOS",
+      "17500",
+      "-",
+      "SIM"
+    ],
+    [
+      "BISCOITO VITÓRIA-SANTA FÉ",
+      "DI Ananindeua",
+      "ATIVA",
+      "IRREGULAR",
+      "ALIMENTOS",
+      "17500",
+      "-",
+      "SIM"
+    ],
+    [
+      "CBA - COMPANHIA BRASILEIRA DE ASFALTOS",
+      "DI Ananindeua",
+      "IMPLANTAÇÃO",
+      "REGULAR",
+      "INDÚSTRIA",
+      "39231",
+      "-",
+      "SIM"
+    ],
+    [
+      "BRUCKE ENGENHARIA LTDA",
+      "DI Ananindeua",
+      "ATIVA",
+      "REGULAR",
+      "CONSTRUÇÃO",
+      "25129",
+      "-",
+      "SIM"
+    ],
+    [
+      "BRAUN",
+      "DI Ananindeua",
+      "ATIVA",
+      "IRREGULAR",
+      "CONSTRUÇÃO",
+      "19000",
+      "-",
+      "NÃO"
+    ],
+    [
+      "CARMONA E CABRERA ENGENHARIA E CONSULTORIA LTDA",
+      "DI Ananindeua",
+      "ATIVA",
+      "IRREGULAR",
+      "CONSTRUÇÃO",
+      "55581",
+      "-",
+      "NÃO"
+    ],
+    [
+      "BEST ARMAZÉNS GERAIS E TRANSPORTES LTDA",
+      "DI Ananindeua",
+      "ATIVA",
+      "REGULAR",
+      "CONSTRUÇÃO",
+      "14706",
+      "-",
+      "SIM"
+    ],
+    [
+      "CBA - COMPANHIA BRASILEIRA DE ASFALTOS",
+      "DI Ananindeua",
+      "-",
+      "-",
+      "CONSTRUÇÃO",
+      "-",
+      "-",
+      "-"
+    ],
+    [
+      "CENTENOR EMPREENDIMENTOS S/A",
+      "DI Ananindeua",
+      "INATIVA",
+      "REGULAR",
+      "INDÚSTRIA",
+      "93887",
+      "-",
+      "SIM"
+    ],
+    [
+      "CLPS (COMÉRCIO E LOGÍSTICA DE PROD. SIDERÚRGICOS)",
+      "DI Ananindeua",
+      "INATIVA",
+      "REGULAR",
+      "LOGÍSTICA",
+      "15300",
+      "SUJ. RETOMADA",
+      "NÃO"
+    ],
+    [
+      "CONAB (COMPANHIA NACIONAL DE ABASTECIMENTO)",
+      "DI Ananindeua",
+      "ATIVA",
+      "REGULAR",
+      "LOGÍSTICA",
+      "87600",
+      "-",
+      "SIM"
+    ],
+    [
+      "CONCREARTE LTDA - ME",
+      "DI Ananindeua",
+      "ATIVA",
+      "REGULAR",
+      "INDÚSTRIA",
+      "28322",
+      "-",
+      "SIM"
+    ],
+    [
+      "CONSÓRCIO DAS COOPERATIVAS DE TRANSPORTE DE ANANINDEUA (UNICOOTRANS/COOPCABAM)",
+      "DI Ananindeua",
+      "ATIVA",
+      "IRREGULAR",
+      "TRANSPORTE",
+      "18588",
+      "-",
+      "SIM"
+    ],
+    [
+      "C-TUB (CONSTRUÇÃO E TUBOS LTDA)",
+      "DI Ananindeua",
+      "INATIVA",
+      "REGULAR",
+      "INDÚSTRIA",
+      "27628",
+      "SUJ. RETOMADA",
+      "SIM"
+    ],
+    [
+      "C.A DE SOUZA  & C. BRASIL CONSTRUÇÕES E SERVIÇOS LTDA -ME",
+      "DI Ananindeua",
+      "-",
+      "-",
+      "SERVIÇOS",
+      "29120",
+      "-",
+      "-"
+    ],
+    [
+      "CURTUME BRAGANÇA LTDA",
+      "DI Ananindeua",
+      "INATIVA",
+      "REGULAR",
+      "SERVIÇOS",
+      "38400",
+      "SUJ. RETOMADA",
+      "SIM"
+    ],
+    [
+      "CABANO ENGENHARIA E CONSTRUÇÕES LTDA",
+      "DI Ananindeua",
+      "ATIVA",
+      "REGULAR",
+      "INDÚSTRIA",
+      "5000",
+      "-",
+      "SIM"
+    ],
+    [
+      "CAMPO DO TAVARES",
+      "DI Ananindeua",
+      "ATIVA",
+      "IRREGULAR",
+      "-",
+      "27303",
+      "-",
+      "-"
+    ],
+    [
+      "DICASA",
+      "DI Ananindeua",
+      "INATIVA",
+      "IRREGULAR",
+      "COMÉRCIO",
+      "36363",
+      "-",
+      "NÃO"
+    ],
+    [
+      "DISMOBRAS ( CITY LAR)",
+      "DI Ananindeua",
+      "INATIVA",
+      "REGULAR",
+      "COMÉRCIO",
+      "35430",
+      "SUJ. RETOMADA",
+      "SIM"
+    ],
+    [
+      "DISTRIBUIDORA BIG BENN",
+      "DI Ananindeua",
+      "INATIVA",
+      "REGULAR",
+      "COMÉRCIO",
+      "49417",
+      "-",
+      "SIM"
+    ],
+    [
+      "PROPAZ",
+      "DI Ananindeua",
+      "-",
+      "-",
+      "-",
+      "15038",
+      "-",
+      "-"
+    ],
+    [
+      "TRANSPORTADORA EXPRESSO VIDA",
+      "DI Ananindeua",
+      "ATIVA",
+      "IRREGULAR",
+      "TRANSPORTE",
+      "59029",
+      "-",
+      "NÃO"
+    ],
+    [
+      "RECICLAGEM",
+      "DI Ananindeua",
+      "ATIVA",
+      "IRREGULAR",
+      "SERVIÇOS",
+      "33000",
+      "-",
+      "NÃO"
+    ],
+    [
+      "DJM TRANSPORTE E LOGÍSTICA LTDA -ME/TRANSPORTADORA EXPRESSO VIDA",
+      "DI Ananindeua",
+      "ATIVA",
+      "IRREGULAR",
+      "LOGÍSTICA",
+      "32682",
+      "-",
+      "NÃO"
+    ],
+    [
+      "DVN VIDROS",
+      "DI Ananindeua",
+      "INATIVA",
+      "IRREGULAR",
+      "COMÉRCIO",
+      "33863",
+      "-",
+      "SIM"
+    ],
+    [
+      "AMACOCO-ÁGUA DE COCO DA AMAZÔNIA LTDA",
+      "DI Ananindeua",
+      "ATIVA",
+      "REGULAR",
+      "-",
+      "6111",
+      "-",
+      "SIM"
+    ],
+    [
+      "ECOPARÁ TIMBER / BARSA ESQUADRIA",
+      "DI Ananindeua",
+      "ATIVA",
+      "IRREGULAR",
+      "-",
+      "70352",
+      "-",
+      "SIM"
+    ],
+    [
+      "TRADELINK",
+      "DI Ananindeua",
+      "ATIVA",
+      "REGULAR",
+      "-",
+      "26684",
+      "-",
+      "SIM"
+    ],
+    [
+      "ELETRONORTE",
+      "DI Ananindeua",
+      "ATIVA",
+      "REGULAR",
+      "INDÚSTRIA",
+      "131436",
+      "-",
+      "SIM"
+    ],
+    [
+      "EMAPA (EXPORTAÇÃO DE MADEIRAS DO PARÁ)",
+      "DI Ananindeua",
+      "ATIVA",
+      "REGULAR",
+      "INDÚSTRIA",
+      "23530",
+      "-",
+      "SIM"
+    ],
+    [
+      "ENGEPLAN (ENGENHARIA DE PANEJAMENTO LTDA)",
+      "DI Ananindeua",
+      "ATIVA",
+      "REGULAR",
+      "INDÚSTRIA",
+      "56287",
+      "-",
+      "SIM"
+    ],
+    [
+      "FÁBRICA DE SABÃO ( MONICA PORTAL MORAES)",
+      "DI Ananindeua",
+      "ATIVA",
+      "IRREGULAR",
+      "INDÚSTRIA",
+      "5454",
+      "-",
+      "SIM"
+    ],
+    [
+      "FACEPA (FABRICA DE PAPEL DA AMAZONIA)",
+      "DI Ananindeua",
+      "INATIVA",
+      "REGULAR",
+      "INDÚSTRIA",
+      "62969",
+      "-",
+      "SIM"
+    ],
+    [
+      "FAMA",
+      "DI Ananindeua",
+      "INATIVA",
+      "REGULAR",
+      "INDÚSTRIA",
+      "55206",
+      "SUJ. RETOMADA",
+      "SIM"
+    ],
+    [
+      "FÓRMULA ZERO",
+      "DI Ananindeua",
+      "INATIVA",
+      "REGULAR",
+      "COMÉRCIO",
+      "16367",
+      "-",
+      "SIM"
+    ],
+    [
+      "FRIGOSERVICE",
+      "DI Ananindeua",
+      "INATIVA",
+      "REGULAR",
+      "COMÉRCIO",
+      "22999",
+      "-",
+      "SIM"
+    ],
+    [
+      "FUTURO VERDE EXPORTAÇÃO DE MADEIRAS LTDA",
+      "DI Ananindeua",
+      "INATIVA",
+      "REGULAR",
+      "COMÉRCIO",
+      "14000",
+      "-",
+      "SIM"
+    ],
+    [
+      "GAMA LOPES LTDA",
+      "DI Ananindeua",
+      "INATIVA",
+      "REGULAR",
+      "COMÉRCIO",
+      "92075",
+      "SUJ. RETOMADA",
+      "SIM"
+    ],
+    [
+      "GERA - GERAÇÃO DE ENERGIA",
+      "DI Ananindeua",
+      "INATIVA",
+      "REGULAR",
+      "INDÚSTRIA",
+      "23808",
+      "-",
+      "SIM"
+    ],
+    [
+      "GGFT TRANSPORTES  E ARMAZENS LTDA",
+      "DI Ananindeua",
+      "IMPLANTAÇÃO",
+      "REGULAR",
+      "LOGÍSTICA",
+      "19608",
+      "-",
+      "NÃO"
+    ],
+    [
+      "HL NORTE (GAMA LOPES)",
+      "DI Ananindeua",
+      "ATIVA",
+      "REGULAR",
+      "COMÉRCIO",
+      "37149",
+      "-",
+      "SIM"
+    ],
+    [
+      "INPM (INMETRO)",
+      "DI Ananindeua",
+      "INATIVA",
+      "REGULAR",
+      "-",
+      "15479",
+      "-",
+      "SIM"
+    ],
+    [
+      "IMPERSIK COMÉRCIO E SERVIÇOS LTDA",
+      "DI Ananindeua",
+      "IMPLANTAÇÃO",
+      "REGULAR",
+      "COMÉRCIO",
+      "7200",
+      "-",
+      "NÃO"
+    ],
+    [
+      "J. SERAMUCIN -ME",
+      "DI Ananindeua",
+      "ATIVA",
+      "REGULAR",
+      "COMÉRCIO",
+      "17500",
+      "-",
+      "SIM"
+    ],
+    [
+      "ENGEPLAN (ENGENHARIA DE PANEJAMENTO LTDA)",
+      "DI Ananindeua",
+      "ATIVA",
+      "IRREGULAR",
+      "INDÚSTRIA",
+      "14230",
+      "-",
+      "-"
+    ],
+    [
+      "JM DA S LIMA TRANSPORTES -ME",
+      "DI Ananindeua",
+      "ATIVA",
+      "REGULAR",
+      "TRANSPORTE",
+      "9471",
+      "-",
+      "-"
+    ],
+    [
+      "CBA ( COMPANHIA BRASILEIRA DE ASFALTOS)",
+      "DI Ananindeua",
+      "ATIVA",
+      "REGULAR",
+      "INDÚSTRIA",
+      "63472",
+      "-",
+      "-"
+    ],
+    [
+      "JURUÁ FLORESTAL LTDA (Pará Compensados)",
+      "DI Ananindeua",
+      "ATIVA",
+      "REGULAR",
+      "INDÚSTRIA",
+      "82944",
+      "-",
+      "SIM"
+    ],
+    [
+      "JM TERRAPLENAGEM CONSTRUÇÃO LTDA",
+      "DI Ananindeua",
+      "ATIVA",
+      "REGULAR",
+      "INDÚSTRIA",
+      "20700",
+      "-",
+      "SIM"
+    ],
+    [
+      "AÇAI ORIGINALE",
+      "DI Ananindeua",
+      "ATIVA",
+      "IRREGULAR",
+      "INDÚSTRIA",
+      "8997",
+      "-",
+      "SIM"
+    ],
+    [
+      "LAMAPA (LAMINADOS DE MADEIRA DO PARÁ)",
+      "DI Ananindeua",
+      "ATIVA",
+      "REGULAR",
+      "INDÚSTRIA",
+      "42900",
+      "-",
+      "SIM"
+    ],
+    [
+      "LAMAPA (LAMINADOS DE MADEIRA DO PARÁ) - Madenorte",
+      "DI Ananindeua",
+      "ATIVA",
+      "IRREGULAR",
+      "INDÚSTRIA",
+      "49772",
+      "-",
+      "SIM"
+    ],
+    [
+      "LAVRAMA DA AMAZÔNIA INDÚSTRIA E COMÉRCIO DE MADEIRAS LTDA",
+      "DI Ananindeua",
+      "ATIVA",
+      "REGULAR",
+      "INDÚSTRIA",
+      "82066",
+      "-",
+      "SIM"
+    ],
+    [
+      "LUMBEBRAS LTDA",
+      "DI Ananindeua",
+      "ATIVA",
+      "REGULAR",
+      "SERVIÇOS",
+      "29416",
+      "-",
+      "SIM"
+    ],
+    [
+      "LBP MASTER LAVANDERIAS/LAVEBRAS",
+      "DI Ananindeua",
+      "IMPLANTAÇÃO",
+      "REGULAR",
+      "SERVIÇOS",
+      "37602",
+      "-",
+      "NÃO"
+    ],
+    [
+      "LWART LUBRIFICANTES LTDA",
+      "DI Ananindeua",
+      "ATIVA",
+      "REGULAR",
+      "SERVIÇOS",
+      "7910",
+      "-",
+      "SIM"
+    ],
+    [
+      "LENGLER PARTICIPAÇÕES SOCIETÁRIAS LTDA",
+      "DI Ananindeua",
+      "IMPLANTAÇÃO",
+      "REGULAR",
+      "-",
+      "8512",
+      "-",
+      "NÃO"
+    ],
+    [
+      "LENGLER PARTICIPAÇÕES SOCIETÁRIAS LTDA",
+      "DI Ananindeua",
+      "IMPLANTAÇÃO",
+      "REGULAR",
+      "-",
+      "4204",
+      "-",
+      "-"
+    ],
+    [
+      "LENGLER PARTICIPAÇÕES SOCIETÁRIAS LTDA",
+      "DI Ananindeua",
+      "IMPLANTAÇÃO",
+      "REGULAR",
+      "-",
+      "5816",
+      "-",
+      "-"
+    ],
+    [
+      "L.C  LOCAÇÃO DE MÁQUINAS E EQUIPAMENTOS",
+      "DI Ananindeua",
+      "IMPLANTAÇÃO",
+      "REGULAR",
+      "-",
+      "10000",
+      "-",
+      "NÃO"
+    ],
+    [
+      "MACE MADEIRAS",
+      "DI Ananindeua",
+      "INATIVA",
+      "REGULAR",
+      "-",
+      "62572",
+      "-",
+      "SIM"
+    ],
+    [
+      "MAGINCO COMPENSADOS S/A",
+      "DI Ananindeua",
+      "INATIVA",
+      "REGULAR",
+      "-",
+      "20000",
+      "-",
+      "SIM"
+    ],
+    [
+      "MAHOGANY INDUSTRIA E COMERCIO DE MÓVEIS LTDA",
+      "DI Ananindeua",
+      "INATIVA",
+      "REGULAR",
+      "-",
+      "5125",
+      "-",
+      "-"
+    ],
+    [
+      "MIZU -POLIMIX",
+      "DI Ananindeua",
+      "ATIVA",
+      "REGULAR",
+      "INDÚSTRIA",
+      "127234",
+      "-",
+      "SIM"
+    ],
+    [
+      "MIZU -POLIMIX",
+      "DI Ananindeua",
+      "ATIVA",
+      "REGULAR",
+      "INDÚSTRIA",
+      "67933",
+      "-",
+      "SIM"
+    ],
+    [
+      "MULTILIT FIBROCIMENTO",
+      "DI Ananindeua",
+      "ATIVA",
+      "IRREGULAR",
+      "INDÚSTRIA",
+      "23000",
+      "-",
+      "-"
+    ],
+    [
+      "NORTE BRASIL",
+      "DI Ananindeua",
+      "INATIVA",
+      "REGULAR",
+      "-",
+      "9012",
+      "-",
+      "SIM"
+    ],
+    [
+      "GURI TRANSPORTADORA",
+      "DI Ananindeua",
+      "ATIVA",
+      "IRREGULAR",
+      "SERVIÇOS",
+      "4700",
+      "-",
+      "NÃO"
+    ],
+    [
+      "ORTHOFIRME (FÁBRICA DE COLCHÕES)",
+      "DI Ananindeua",
+      "ATIVA",
+      "REGULAR",
+      "INDÚSTRIA",
+      "15296",
+      "-",
+      "SIM"
+    ],
+    [
+      "SUPER PORTO LTDA/OURO VERDE EXPORTAÇÃO DE MADEIRAS LTDA",
+      "DI Ananindeua",
+      "ATIVA",
+      "IRREGULAR",
+      "COMÉRCIO",
+      "21064",
+      "-",
+      "NÃO"
+    ],
+    [
+      "BAUMINAS QUIMICA N/NE LTDA",
+      "DI Ananindeua",
+      "ATIVA",
+      "REGULAR",
+      "INDÚSTRIA",
+      "20900",
+      "-",
+      "SIM"
+    ],
+    [
+      "POLPAS DA AMAZONIA INDUSTRIA ALIMENTICIA LTDA",
+      "DI Ananindeua",
+      "INATIVA",
+      "REGULAR",
+      "INDÚSTRIA",
+      "28900",
+      "-",
+      "SIM"
+    ],
+    [
+      "PREMOL",
+      "DI Ananindeua",
+      "ATIVA",
+      "IRREGULAR",
+      "INDÚSTRIA",
+      "6307",
+      "-",
+      "NÃO"
+    ],
+    [
+      "PREMINT PRE MOLDADOS INTELIGENTES LTDA",
+      "DI Ananindeua",
+      "ATIVA",
+      "IRREGULAR",
+      "INDÚSTRIA",
+      "62873",
+      "-",
+      "SIM"
+    ],
+    [
+      "PROLAR INDUSTRIA DE MÓVEIS",
+      "DI Ananindeua",
+      "ATIVA",
+      "REGULAR",
+      "INDÚSTRIA",
+      "10400",
+      "-",
+      "SIM"
+    ],
+    [
+      "QUALITY TEMPER VIDROS LTDA",
+      "DI Ananindeua",
+      "ATIVA",
+      "REGULAR",
+      "INDÚSTRIA",
+      "14254",
+      "-",
+      "SIM"
+    ],
+    [
+      "PARÁ DISTRIBUIDORA",
+      "DI Ananindeua",
+      "ATIVA",
+      "IRREGULAR",
+      "SERVIÇOS",
+      "4948",
+      "-",
+      "-"
+    ],
+    [
+      "REAL COMERCIO DE MÓVEIS LTDA",
+      "DI Ananindeua",
+      "ATIVA",
+      "IRREGULAR",
+      "SERVIÇOS",
+      "2217",
+      "-",
+      "NÃO"
+    ],
+    [
+      "RECICLE +",
+      "DI Ananindeua",
+      "INATIVA",
+      "IRREGULAR",
+      "SERVIÇOS",
+      "55431",
+      "-",
+      "SIM"
+    ],
+    [
+      "POLIMIX CONCRETO LTDA",
+      "DI Ananindeua",
+      "ATIVA",
+      "REGULAR",
+      "INDÚSTRIA",
+      "19733",
+      "-",
+      "SIM"
+    ],
+    [
+      "REFRISA (REFRIGERANTES PARÁ LTDA)",
+      "DI Ananindeua",
+      "INATIVA",
+      "REGULAR",
+      "SERVIÇOS",
+      "23016",
+      "-",
+      "SIM"
+    ],
+    [
+      "UNIÃO COMÉRCIO INDÚSTRIA E TRANSPORTES LTDA",
+      "DI Ananindeua",
+      "IMPLANTAÇÃO",
+      "REGULAR",
+      "SERVIÇOS",
+      "25200",
+      "-",
+      "SIM"
+    ],
+    [
+      "RIO NEGRO COMÉRCIO/SÓLIDA",
+      "DI Ananindeua",
+      "INATIVA",
+      "REGULAR",
+      "SERVIÇOS",
+      "7286",
+      "-",
+      "SIM"
+    ],
+    [
+      "RIOPEL (COMÉRCIO DE APARAS DE PAPEL LTDA)",
+      "DI Ananindeua",
+      "ATIVA",
+      "REGULAR",
+      "SERVIÇOS",
+      "34610",
+      "-",
+      "SIM"
+    ],
+    [
+      "PAIER ADMINISTRAÇÃO DE IMÓVEIS LTDA",
+      "DI Ananindeua",
+      "ATIVA",
+      "REGULAR",
+      "SERVIÇOS",
+      "10800",
+      "-",
+      "SIM"
+    ],
+    [
+      "SANTA FÉ INDÚSTRIA E COMÉRCIO DE PRODUTOS ALIMENTÍCIOS EIRELI-ME",
+      "DI Ananindeua",
+      "ATIVA",
+      "REGULAR",
+      "SERVIÇOS",
+      "35000",
+      "-",
+      "-"
+    ],
+    [
+      "QUIMIFARMA",
+      "DI Ananindeua",
+      "INATIVA",
+      "IRREGULAR",
+      "INDÚSTRIA",
+      "22500",
+      "-",
+      "SIM"
+    ],
+    [
+      "SALES E MARTHA (TROPISABOR)",
+      "DI Ananindeua",
+      "INATIVA",
+      "REGULAR",
+      "SERVIÇOS",
+      "3545",
+      "-",
+      "SIM"
+    ],
+    [
+      "SAVEIRA SABÃO (SABINO DE OLIVEIRA INDUSTRIA)",
+      "DI Ananindeua",
+      "INATIVA",
+      "REGULAR",
+      "INDÚSTRIA",
+      "15907",
+      "-",
+      "SIM"
+    ],
+    [
+      "SEMASA",
+      "DI Ananindeua",
+      "INATIVA",
+      "REGULAR",
+      "INDÚSTRIA",
+      "47644",
+      "-",
+      "SIM"
+    ],
+    [
+      "SILVA E ALIMENTOS",
+      "DI Ananindeua",
+      "INATIVA",
+      "IRREGULAR",
+      "SERVIÇOS",
+      "47295",
+      "-",
+      "NÃO"
+    ],
+    [
+      "SOCOCO S/A",
+      "DI Ananindeua",
+      "INATIVA",
+      "REGULAR",
+      "INDÚSTRIA",
+      "46000",
+      "-",
+      "SIM"
+    ],
+    [
+      "SOCOCO S/A",
+      "DI Ananindeua",
+      "ATIVA",
+      "REGULAR",
+      "INDÚSTRIA",
+      "94477",
+      "-",
+      "SIM"
+    ],
+    [
+      "SOLOTECNICA ENGENHARIA LTDA",
+      "DI Ananindeua",
+      "INATIVA",
+      "REGULAR",
+      "INDÚSTRIA",
+      "5352",
+      "-",
+      "SIM"
+    ],
+    [
+      "SP ENGENHARIA E EMPREENDIMENTOS LTDA",
+      "DI Ananindeua",
+      "INATIVA",
+      "REGULAR",
+      "INDÚSTRIA",
+      "6880",
+      "-",
+      "SIM"
+    ],
+    [
+      "SUALL INDUSTRIA E COMÉRCIO LTDA (Ativa)",
+      "DI Ananindeua",
+      "ATIVA",
+      "REGULAR",
+      "INDÚSTRIA",
+      "69591",
+      "-",
+      "SIM"
+    ],
+    [
+      "SUPERMASSA (ARGAMASSAS DO PARÁ)",
+      "DI Ananindeua",
+      "ATIVA",
+      "REGULAR",
+      "INDÚSTRIA",
+      "2754",
+      "-",
+      "SIM"
+    ],
+    [
+      "SUPERMASSA (ARGAMASSAS DO PARÁ)",
+      "DI Ananindeua",
+      "IMPLANTAÇÃO",
+      "REGULAR",
+      "INDÚSTRIA",
+      "15560",
+      "-",
+      "SIM"
+    ],
+    [
+      "SUPERSONIC LOGÍSTICA E TRANSPORTES LTDA",
+      "DI Ananindeua",
+      "IMPLANTAÇÃO",
+      "REGULAR",
+      "LOGÍSTICA",
+      "43333",
+      "-",
+      "NÃO"
+    ],
+    [
+      "BEST TRANSPORTES",
+      "DI Ananindeua",
+      "-",
+      "-",
+      "TRANSPORTE",
+      "35000",
+      "-",
+      "-"
+    ],
+    [
+      "TECH ION INDUSTRIA BRASIL S/A",
+      "DI Ananindeua",
+      "INATIVA",
+      "REGULAR",
+      "INDÚSTRIA",
+      "21788",
+      "-",
+      "SIM"
+    ],
+    [
+      "TOTAL DISTRIBUIDORA/SERRARIA PRESSUL",
+      "DI Ananindeua",
+      "ATIVA",
+      "IRREGULAR",
+      "SERVIÇOS",
+      "62500",
+      "-",
+      "-"
+    ],
+    [
+      "TOTAL DISTRIBUIDORA  DE PRODUTOS ALIMENTICIOS LTDA",
+      "DI Ananindeua",
+      "ATIVA",
+      "IRREGULAR",
+      "SERVIÇOS",
+      "18900",
+      "-",
+      "-"
+    ],
+    [
+      "TATICA ENGENHARIA IMOBILIARIA",
+      "DI Ananindeua",
+      "INATIVA",
+      "REGULAR",
+      "-",
+      "4759",
+      "-",
+      "SIM"
+    ],
+    [
+      "TRADELINK MADEIRAS LTDA",
+      "DI Ananindeua",
+      "ATIVA",
+      "REGULAR",
+      "-",
+      "137315",
+      "-",
+      "SIM"
+    ],
+    [
+      "TRADELINK MADEIRAS LTDA",
+      "DI Ananindeua",
+      "ATIVA",
+      "REGULAR",
+      "-",
+      "26684",
+      "-",
+      "SIM"
+    ],
+    [
+      "TRADELINK MADEIRAS LTDA",
+      "DI Ananindeua",
+      "ATIVA",
+      "REGULAR",
+      "-",
+      "27714",
+      "-",
+      "SIM"
+    ],
+    [
+      "TRAEL INDUSTRIA DE TRANSFORMADORES ELETRICOS LTDA",
+      "DI Ananindeua",
+      "ATIVA",
+      "REGULAR",
+      "INDÚSTRIA",
+      "11354",
+      "-",
+      "SIM"
+    ],
+    [
+      "TRANSPORTADORA TAPAJÓS",
+      "DI Ananindeua",
+      "ATIVA",
+      "REGULAR",
+      "TRANSPORTE",
+      "9948",
+      "-",
+      "SIM"
+    ],
+    [
+      "M. CORRADINI/TRICICLOS FREE WAY",
+      "DI Ananindeua",
+      "ATIVA",
+      "IRREGULAR",
+      "COMÉRCIO",
+      "5033",
+      "-",
+      "NÃO"
+    ],
+    [
+      "USINA DE ASFALTOS DA P.M.A",
+      "DI Ananindeua",
+      "ATIVA",
+      "REGULAR",
+      "INDÚSTRIA",
+      "17151",
+      "-",
+      "SIM"
+    ],
+    [
+      "VITÓRIA RÉGIA",
+      "DI Ananindeua",
+      "INATIVA",
+      "REGULAR",
+      "-",
+      "36214",
+      "-",
+      "SIM"
+    ],
+    [
+      "VELOZ QUÍMICA, DERIVADOS DE PETROLÉO E SOLVENTES LTDA",
+      "DI Ananindeua",
+      "IMPLANTAÇÃO",
+      "REGULAR",
+      "INDÚSTRIA",
+      "83602",
+      "-",
+      "NÃO"
+    ],
+    [
+      "TOTAL DISTRIBUIDORA  DE PRODUTOS ALIMENTICIOS LTDA",
+      "DI Ananindeua",
+      "ATIVA",
+      "IRREGULAR",
+      "COMÉRCIO",
+      "23336",
+      "-",
+      "SIM"
+    ],
+    [
+      "VOTORANTIM CIMENTO N/NE S.A",
+      "DI Ananindeua",
+      "ATIVA",
+      "REGULAR",
+      "INDÚSTRIA",
+      "14913",
+      "-",
+      "NÃO"
+    ],
+    [
+      "WANDERLEY OLIVEIRA ROCHA EIRELLI",
+      "DI Ananindeua",
+      "ATIVA",
+      "REGULAR",
+      "-",
+      "2754",
+      "-",
+      "SIM"
+    ],
+    [
+      "WBL/NKM DISTRIBUIÇÃO DE TRANSPORTES DE BETUMES",
+      "DI Ananindeua",
+      "ATIVA",
+      "REGULAR",
+      "TRANSPORTE",
+      "15500",
+      "-",
+      "SIM"
+    ],
+    [
+      "WOOD DESIGN E MUNÇÃO",
+      "DI Ananindeua",
+      "ATIVA",
+      "REGULAR",
+      "SERVIÇOS",
+      "31078",
+      "-",
+      "SIM"
+    ],
+    [
+      "-",
+      "-",
+      "-",
+      "-",
+      "-",
+      "-",
+      "-",
+      "-"
+    ],
+    [
+      "ACOSTUMADO ALIMENTOS LTDA (ARROZ ACOSTUMADO)",
+      "DI Icoaraci",
+      "ATIVA",
+      "IRREGULAR",
+      "INDÚSTRIA",
+      "17903",
+      "-",
+      "SIM"
+    ],
+    [
+      "CARIBENA CERVEJARIA",
+      "DI Icoaraci",
+      "ATIVA",
+      "REGULAR",
+      "-",
+      "64334",
+      "-",
+      "SIM"
+    ],
+    [
+      "NORTLOG",
+      "DI Icoaraci",
+      "ATIVA",
+      "IRREGULAR",
+      "-",
+      "96000",
+      "-",
+      "SIM"
+    ],
+    [
+      "NORDISK",
+      "DI Icoaraci",
+      "ATIVA",
+      "REGULAR",
+      "-",
+      "59436",
+      "-",
+      "SIM"
+    ],
+    [
+      "INDÚSTRIA DE MADEIRA MARA POPINHACK LTDA",
+      "DI Icoaraci",
+      "INATIVA",
+      "REGULAR",
+      "-",
+      "73483",
+      "-",
+      "SIM"
+    ],
+    [
+      "MAJONAVE TRANSPORTE FLUVIAL DA BACIA AMAZÔNICA LTDA",
+      "DI Icoaraci",
+      "ATIVA",
+      "REGULAR",
+      "-",
+      "49927",
+      "-",
+      "SIM"
+    ],
+    [
+      "MAJONAVE TRANSPORTE FLUVIAL DA BACIA AMAZÔNICA LTDA.",
+      "DI Icoaraci",
+      "ATIVA",
+      "IRREGULAR",
+      "-",
+      "52595",
+      "-",
+      "SIM"
+    ],
+    [
+      "MAJONAVE TRANSPORTE FLUVIAL DA BACIA AMAZÔNICA LTDA.",
+      "DI Icoaraci",
+      "ATIVA",
+      "IRREGULAR",
+      "-",
+      "177480",
+      "-",
+      "SIM"
+    ],
+    [
+      "MAJONAVE TRANSPORTE FLUVIAL DA BACIA AMAZÔNICA LTDA.",
+      "DI Icoaraci",
+      "INATIVA",
+      "IRREGULAR",
+      "-",
+      "13666",
+      "SUJ. RETOMADA",
+      "SIM"
+    ],
+    [
+      "MAJONAVE TRANSPORTE FLUVIAL DA BACIA AMAZÔNICA LTDA.",
+      "DI Icoaraci",
+      "INATIVA",
+      "IRREGULAR",
+      "-",
+      "59994",
+      "SUJ. RETOMADA",
+      "NÃO"
+    ],
+    [
+      "TRAMONTINA BELÉM S/A",
+      "DI Icoaraci",
+      "ATIVA",
+      "REGULAR",
+      "-",
+      "151280",
+      "-",
+      "SIM"
+    ],
+    [
+      "VIMEX",
+      "DI Icoaraci",
+      "ATIVA",
+      "REGULAR",
+      "-",
+      "24200",
+      "-",
+      "NÃO"
+    ],
+    [
+      "ALTO GIRO",
+      "DI Icoaraci",
+      "INATIVA",
+      "IRREGULAR",
+      "-",
+      "56429",
+      "-",
+      "SIM"
+    ],
+    [
+      "SUPERFRUITS GLOBAL DO BRASIL",
+      "DI Icoaraci",
+      "ATIVA",
+      "IRREGULAR",
+      "-",
+      "43720",
+      "-",
+      "NÃO"
+    ],
+    [
+      "AÇO PARÁ INDUSTRIA DE PERFILADOS DE AÇO LTDA.",
+      "DI Icoaraci",
+      "INATIVA",
+      "IRREGULAR",
+      "-",
+      "47526",
+      "-",
+      "SIM"
+    ],
+    [
+      "BELEAF MOVELARIA E SERVIÇOS EIRELI-EPP",
+      "DI Icoaraci",
+      "ATIVA",
+      "REGULAR",
+      "-",
+      "21026",
+      "-",
+      "SIM"
+    ],
+    [
+      "BCL ADMINISTRAÇÃO E EMPREENDIMENTOS LTDA",
+      "DI Icoaraci",
+      "ATIVA",
+      "REGULAR",
+      "-",
+      "26685",
+      "-",
+      "SIM"
+    ],
+    [
+      "BIOS SERVICE",
+      "DI Icoaraci",
+      "ATIVA",
+      "IRREGULAR",
+      "-",
+      "73886",
+      "-",
+      "SIM"
+    ],
+    [
+      "CONSTRUTORA JLA LTDA",
+      "DI Icoaraci",
+      "INATIVA",
+      "IRREGULAR",
+      "-",
+      "51988",
+      "-",
+      "NÃO"
+    ],
+    [
+      "CRAS LOGÍSTICA IMPORTAÇÃO E EXPORTAÇÃO LTDA",
+      "DI Icoaraci",
+      "ATIVA",
+      "REGULAR",
+      "-",
+      "59000",
+      "-",
+      "SIM"
+    ],
+    [
+      "COEXPA",
+      "DI Icoaraci",
+      "IMPLANTAÇÃO",
+      "REGULAR",
+      "-",
+      "14400",
+      "-",
+      "NÃO"
+    ],
+    [
+      "DITORA",
+      "DI Icoaraci",
+      "ATIVA",
+      "IRREGULAR",
+      "-",
+      "18400",
+      "-",
+      "NÃO"
+    ],
+    [
+      "EQUATORIAL PARÁ DISTRIBUIDORA DE ENERGIA S.A. (CELPA - Centrais Elétricas do Pará)",
+      "DI Icoaraci",
+      "ATIVA",
+      "REGULAR",
+      "-",
+      "16800",
+      "-",
+      "SIM"
+    ],
+    [
+      "EBATA PRODUTOS FLORESTAIS LTDA",
+      "DI Icoaraci",
+      "ATIVA",
+      "REGULAR",
+      "-",
+      "33200",
+      "-",
+      "SIM"
+    ],
+    [
+      "MADEROL",
+      "DI Icoaraci",
+      "ATIVA",
+      "IRREGULAR",
+      "-",
+      "13373",
+      "-",
+      "SIM"
+    ],
+    [
+      "EBATA PRODUTOS FLORESTAIS LTDA",
+      "DI Icoaraci",
+      "ATIVA",
+      "REGULAR",
+      "-",
+      "24552",
+      "-",
+      "SIM"
+    ],
+    [
+      "EURO BRASIL LOGÍSTICA LTDA.",
+      "DI Icoaraci",
+      "INATIVA",
+      "IRREGULAR",
+      "-",
+      "8000",
+      "SUJ. RETOMADA",
+      "NÃO"
+    ],
+    [
+      "EDINALDO PEREIRA DA COSTA (Pessoa Física)",
+      "DI Icoaraci",
+      "INATIVA",
+      "IRREGULAR",
+      "-",
+      "16000",
+      "EM RETOMADA JUD",
+      "NÃO"
+    ],
+    [
+      "FN CRESPO NETO E CIA LTDA.",
+      "DI Icoaraci",
+      "INATIVA",
+      "REGULAR",
+      "-",
+      "115000",
+      "EM RETOMADA ADM",
+      "SIM"
+    ],
+    [
+      "G. C. MADEIRAS COM. IND. E EXPORTAÇÃO LTDA.",
+      "DI Icoaraci",
+      "ATIVA",
+      "REGULAR",
+      "-",
+      "16000",
+      "-",
+      "SIM"
+    ],
+    [
+      "GUERREIRO GUIMARÃES INDÚSTRIA E COMÉRCIO LTDA",
+      "DI Icoaraci",
+      "ATIVA",
+      "REGULAR",
+      "-",
+      "2203",
+      "-",
+      "NÃO"
+    ],
+    [
+      "IPEZAI COMERCIO DE MADEIRAS LTDA.",
+      "DI Icoaraci",
+      "ATIVA",
+      "REGULAR",
+      "-",
+      "12293",
+      "-",
+      "SIM"
+    ],
+    [
+      "M. J. NOVAES DE LIMA & CIA LTDA. (CURTUME IDEAL)",
+      "DI Icoaraci",
+      "ATIVA",
+      "REGULAR",
+      "-",
+      "12479",
+      "-",
+      "SIM"
+    ],
+    [
+      "LASEX",
+      "DI Icoaraci",
+      "INATIVA",
+      "IRREGULAR",
+      "-",
+      "15565",
+      "-",
+      "NÃO"
+    ],
+    [
+      "LAVOURA & FRISSO LTDA.",
+      "DI Icoaraci",
+      "ATIVA",
+      "IRREGULAR",
+      "-",
+      "21600",
+      "-",
+      "SIM"
+    ],
+    [
+      "LUNA EMPREENDIMENTOS IMOBILIÁRIOS LTDA",
+      "DI Icoaraci",
+      "INATIVA",
+      "IRREGULAR",
+      "-",
+      "41777",
+      "-",
+      "SIM"
+    ],
+    [
+      "LUMO INDÚSTRIA FLORESTAL EIRELI",
+      "DI Icoaraci",
+      "ATIVA",
+      "REGULAR",
+      "-",
+      "12575",
+      "-",
+      "SIM"
+    ],
+    [
+      "IRMÃOS ALVARENGA INDÚSTRIA E COMERCIO DE MADEIRAS LTDA.",
+      "DI Icoaraci",
+      "ATIVA",
+      "IRREGULAR",
+      "-",
+      "18535",
+      "-",
+      "SIM"
+    ],
+    [
+      "MADEIREIRA IDEAL INDUSTRIA COMERCIO E EXP. LTDA.",
+      "DI Icoaraci",
+      "ATIVA",
+      "REGULAR",
+      "-",
+      "51850",
+      "-",
+      "SIM"
+    ],
+    [
+      "MADEIREIRA IDEAL INDUSTRIA COMERCIO E EXP. LTDA.",
+      "DI Icoaraci",
+      "ATIVA",
+      "REGULAR",
+      "-",
+      "14569",
+      "-",
+      "SIM"
+    ],
+    [
+      "MEGA LOGÍSTICA",
+      "DI Icoaraci",
+      "IMPLANTAÇÃO",
+      "IRREGULAR",
+      "-",
+      "-",
+      "-",
+      "SIM"
+    ],
+    [
+      "ABS CONSTRUÇÔES E MONTAGENS LTDA.",
+      "DI Icoaraci",
+      "ATIVA",
+      "IRREGULAR",
+      "-",
+      "29378",
+      "-",
+      "SIM"
+    ],
+    [
+      "RENASCER LOCAÇÕES DE EQUIP. EIRELI.",
+      "DI Icoaraci",
+      "ATIVA",
+      "REGULAR",
+      "-",
+      "30250",
+      "-",
+      "SIM"
+    ],
+    [
+      "PERFINI INDÚSTRIA E COMÉRCIO LTDA",
+      "DI Icoaraci",
+      "ATIVA",
+      "REGULAR",
+      "-",
+      "4357",
+      "-",
+      "SIM"
+    ],
+    [
+      "RODOTERRA AGROPECUÁRIA SITUAÇÃO",
+      "DI Icoaraci",
+      "ATIVA",
+      "IRREGULAR",
+      "-",
+      "15200",
+      "-",
+      "NÃO"
+    ],
+    [
+      "RPN INDÚSTRIA DE PRE MOLDADOS",
+      "DI Icoaraci",
+      "ATIVA",
+      "REGULAR",
+      "-",
+      "10000",
+      "-",
+      "SIM"
+    ],
+    [
+      "SBC CONSTRUÇÃO",
+      "DI Icoaraci",
+      "INATIVA",
+      "IRREGULAR",
+      "-",
+      "32000",
+      "-",
+      "NÃO"
+    ],
+    [
+      "SOLID PARÁ MADEIRAS LTDA",
+      "DI Icoaraci",
+      "INATIVA",
+      "IRREGULAR",
+      "-",
+      "12181",
+      "-",
+      "SIM"
+    ],
+    [
+      "S.S.J.S EMP. IMOBILIÁRIOS EIRELI",
+      "DI Icoaraci",
+      "ATIVA",
+      "REGULAR",
+      "-",
+      "32000",
+      "-",
+      "SIM"
+    ],
+    [
+      "TBB CARGO",
+      "DI Icoaraci",
+      "INATIVA",
+      "IRREGULAR",
+      "-",
+      "20000",
+      "-",
+      "NÃO"
+    ],
+    [
+      "TERRAPLENA LTDA",
+      "DI Icoaraci",
+      "ATIVA",
+      "REGULAR",
+      "-",
+      "41217",
+      "-",
+      "SIM"
+    ],
+    [
+      "HP LOG",
+      "DI Icoaraci",
+      "ATIVA",
+      "IRREGULAR",
+      "-",
+      "44491",
+      "-",
+      "SIM"
+    ],
+    [
+      "TRANSCABRAL SERVICE LTDA",
+      "DI Icoaraci",
+      "ATIVA",
+      "REGULAR",
+      "-",
+      "17420",
+      "-",
+      "SIM"
+    ],
+    [
+      "WILLY COMÉRCIO E SERVIÇOS LTDA.",
+      "DI Icoaraci",
+      "ATIVA",
+      "REGULAR",
+      "-",
+      "7995",
+      "-",
+      "SIM"
+    ],
+    [
+      "WOOD GREEN",
+      "DI Icoaraci",
+      "ATIVA",
+      "IRREGULAR",
+      "-",
+      "61862",
+      "-",
+      "NÃO"
+    ],
+    [
+      "ALUBAR METAIS E CABOS",
+      "DI Barcarena",
+      "ATIVA",
+      "REGULAR",
+      "-",
+      "55676",
+      "-",
+      "SIM"
+    ],
+    [
+      "ALUBAR METAIS E CABOS",
+      "DI Barcarena",
+      "ATIVA",
+      "REGULAR",
+      "INDÚSTRIA",
+      "49128",
+      "-",
+      "SIM"
+    ],
+    [
+      "ALBRÁS-ALUMINIO BRASIL S/A -HYDRO DO BRASIL",
+      "DI Barcarena",
+      "ATIVA",
+      "REGULAR",
+      "INDÚSTRIA",
+      "3062646",
+      "-",
+      "SIM"
+    ],
+    [
+      "ALUNORTE-ALUMINA DO NORTE DO BRASIL-NORSK HYDRO",
+      "DI Barcarena",
+      "ATIVA",
+      "REGULAR",
+      "INDÚSTRIA",
+      "46874260",
+      "-",
+      "SIM"
+    ],
+    [
+      "AÇO PARÁ IND. DE PERFILADOS DE AÇO LTDA",
+      "DI Barcarena",
+      "INATIVA",
+      "IRREGULAR",
+      "INDÚSTRIA",
+      "56328",
+      "-",
+      "SIM"
+    ],
+    [
+      "ALIANÇA TRANSPORTES",
+      "DI Barcarena",
+      "ATIVA",
+      "IRREGULAR",
+      "-",
+      "10000",
+      "-",
+      "NÃO"
+    ],
+    [
+      "GRUPO PARVIL",
+      "DI Barcarena",
+      "ATIVA",
+      "IRREGULAR",
+      "SERVIÇOS",
+      "4305",
+      "-",
+      "SIM"
+    ],
+    [
+      "AGRO CANGAIA ARMAZENS LTDA",
+      "DI Barcarena",
+      "IMPLANTAÇÃO",
+      "REGULAR",
+      "SERVIÇOS",
+      "46000",
+      "-",
+      "SIM"
+    ],
+    [
+      "AGRO CANGAIA ARMAZENS LTDA",
+      "DI Barcarena",
+      "IMPLANTAÇÃO",
+      "REGULAR",
+      "SERVIÇOS",
+      "13657",
+      "-",
+      "NÃO"
+    ],
+    [
+      "BARCARENA IMPORTAÇÃO  E EXP. DE MINÉRIOS",
+      "DI Barcarena",
+      "INATIVA",
+      "IRREGULAR",
+      "-",
+      "400000",
+      "-",
+      "NÃO"
+    ],
+    [
+      "BRASPALMA AGROINDÚSTRIAL EIRELI",
+      "DI Barcarena",
+      "ATIVA",
+      "IRREGULAR",
+      "COMÉRCIO",
+      "10000",
+      "-",
+      "NÃO"
+    ],
+    [
+      "MR DIAS VILHENA",
+      "DI Barcarena",
+      "ATIVA",
+      "IRREGULAR",
+      "COMÉRCIO",
+      "13321",
+      "-",
+      "NÃO"
+    ],
+    [
+      "CONSTEC - CONSULTORIA SERVIÇOS GERAIS E TECNICOS LTDA",
+      "DI Barcarena",
+      "ATIVA",
+      "REGULAR",
+      "SERVIÇOS",
+      "2500",
+      "-",
+      "SIM"
+    ],
+    [
+      "CEVITAL INTERNATIONAL DO BRASIL",
+      "DI Barcarena",
+      "INATIVA",
+      "IRREGULAR",
+      "-",
+      "4002418",
+      "-",
+      "SIM"
+    ],
+    [
+      "CAP -  (HYDRO DO BRASIL - NORSK HYDRO )",
+      "DI Barcarena",
+      "INATIVA",
+      "REGULAR",
+      "-",
+      "5801765",
+      "-",
+      "SIM"
+    ],
+    [
+      "CONSERGEL SERVIÇOS DE CONSTRUÇÕES LTDA/ ASFALTOS",
+      "DI Barcarena",
+      "INATIVA",
+      "IRREGULAR",
+      "-",
+      "22000",
+      "-",
+      "NÃO"
+    ],
+    [
+      "CHURRASCARIA LAÇO DO GAÚCHO",
+      "DI Barcarena",
+      "ATIVA",
+      "IRREGULAR",
+      "ALIMENTOS",
+      "37416",
+      "-",
+      "NÃO"
+    ],
+    [
+      "CICERO MANTEC OBRAS DE MONTAGEM INDUSTRIAIS E LOCACAO DE EQUIPAMENTOS LTDA",
+      "DI Barcarena",
+      "ATIVA",
+      "IRREGULAR",
+      "-",
+      "17750",
+      "-",
+      "NÃO"
+    ],
+    [
+      "CICERO MANTEC OBRAS DE MONTAGEM INDUSTRIAIS E LOCACAO DE EQUIPAMENTOS LTDA",
+      "DI Barcarena",
+      "ATIVA",
+      "REGULAR",
+      "-",
+      "43954",
+      "-",
+      "SIM"
+    ],
+    [
+      "DATA OPERAÇÕES LTDA",
+      "DI Barcarena",
+      "ATIVA",
+      "IRREGULAR",
+      "-",
+      "31204",
+      "-",
+      "NÃO"
+    ],
+    [
+      "ELETRONORTE-CENTRAIS ELÉTRICAS DO NORTE DO BRASIL S/A",
+      "DI Barcarena",
+      "ATIVA",
+      "REGULAR",
+      "-",
+      "447100",
+      "-",
+      "SIM"
+    ],
+    [
+      "ELETRONORTE-CENTRAIS ELÉTRICAS DO NORTE DO BRASIL S/A",
+      "DI Barcarena",
+      "ATIVA",
+      "REGULAR",
+      "-",
+      "274269",
+      "-",
+      "SIM"
+    ],
+    [
+      "ELETRONORTE-CENTRAIS ELÉTRICAS DO NORTE DO BRASIL S/A",
+      "DI Barcarena",
+      "ATIVA",
+      "REGULAR",
+      "-",
+      "2843540",
+      "-",
+      "SIM"
+    ],
+    [
+      "ELETRONORTE-CENTRAIS ELÉTRICAS DO NORTE DO BRASIL S/A",
+      "DI Barcarena",
+      "ATIVA",
+      "REGULAR",
+      "-",
+      "329314",
+      "-",
+      "SIM"
+    ],
+    [
+      "ELETRONORTE-CENTRAIS ELÉTRICAS DO NORTE DO BRASIL S/A",
+      "DI Barcarena",
+      "ATIVA",
+      "REGULAR",
+      "-",
+      "2394441",
+      "-",
+      "SIM"
+    ],
+    [
+      "ELETRONORTE-CENTRAIS ELÉTRICAS DO NORTE DO BRASIL S/A",
+      "DI Barcarena",
+      "ATIVA",
+      "REGULAR",
+      "-",
+      "51869",
+      "-",
+      "SIM"
+    ],
+    [
+      "EMC COMÉRCIO DE REFINADOS DE PETRÓLEO LTDA",
+      "DI Barcarena",
+      "ATIVA",
+      "REGULAR",
+      "-",
+      "9430",
+      "-",
+      "SIM"
+    ],
+    [
+      "FERTILIZANTES TOCANTINS LTDA",
+      "DI Barcarena",
+      "ATIVA",
+      "REGULAR",
+      "-",
+      "100000",
+      "-",
+      "SIM"
+    ],
+    [
+      "FRIBON FERTILIZANTES LTDA",
+      "DI Barcarena",
+      "ATIVA",
+      "REGULAR",
+      "-",
+      "156862",
+      "-",
+      "SIM"
+    ],
+    [
+      "FRIBON FERTILIZANTES LTDA",
+      "DI Barcarena",
+      "ATIVA",
+      "REGULAR",
+      "-",
+      "8070",
+      "-",
+      "SIM"
+    ],
+    [
+      "FRIBON FERTILIZANTES LTDA",
+      "DI Barcarena",
+      "ATIVA",
+      "REGULAR",
+      "-",
+      "16060",
+      "-",
+      "SIM"
+    ],
+    [
+      "FERTZ FERTILIZANTES S/A",
+      "DI Barcarena",
+      "ATIVA",
+      "REGULAR",
+      "-",
+      "31908",
+      "-",
+      "SIM"
+    ],
+    [
+      "FENIX LOGÍSTICA COMÉRCIO E LOCAÇÕES DE MÁQUINAS EIRELI",
+      "DI Barcarena",
+      "IMPLANTAÇÃO",
+      "REGULAR",
+      "-",
+      "33345",
+      "-",
+      "NÃO"
+    ],
+    [
+      "GLOBAL CONSTRUÇÕES E INCORPORADORA LTDA EPP",
+      "DI Barcarena",
+      "ATIVA",
+      "REGULAR",
+      "-",
+      "4514",
+      "-",
+      "SIM"
+    ],
+    [
+      "GÓIAS CONCRETO",
+      "DI Barcarena",
+      "ATIVA",
+      "IRREGULAR",
+      "-",
+      "16546",
+      "-",
+      "NÃO"
+    ],
+    [
+      "GEN INDÚSTRIA E COMÉRCIO DE FERTILIZANTES LTDA",
+      "DI Barcarena",
+      "ATIVA",
+      "REGULAR",
+      "INDÚSTRIA",
+      "134118",
+      "-",
+      "SIM"
+    ],
+    [
+      "GEN INDÚSTRIA E COMÉRCIO DE FERTILIZANTES LTDA",
+      "DI Barcarena",
+      "ATIVA",
+      "REGULAR",
+      "INDÚSTRIA",
+      "86000",
+      "-",
+      "SIM"
+    ],
+    [
+      "GLK TRANSPORTE E LOGÍSTICA EIRELI",
+      "DI Barcarena",
+      "IMPLANTAÇÃO",
+      "REGULAR",
+      "TRANSPORTE",
+      "61515",
+      "-",
+      "NÃO"
+    ],
+    [
+      "GRUPO SUCESSO",
+      "DI Barcarena",
+      "ATIVA",
+      "IRREGULAR",
+      "TRANSPORTE",
+      "25000",
+      "-",
+      "NÃO"
+    ],
+    [
+      "ARTEMYN MINERALS RIO CAPIM CAULIM",
+      "DI Barcarena",
+      "ATIVA",
+      "IRREGULAR",
+      "-",
+      "8003",
+      "-",
+      "SIM"
+    ],
+    [
+      "ARTEMYN MINERALS RIO CAPIM CAULIM",
+      "DI Barcarena",
+      "ATIVA",
+      "IRREGULAR",
+      "-",
+      "122929",
+      "-",
+      "SIM"
+    ],
+    [
+      "ARTEMYN MINERALS RIO CAPIM CAULIM",
+      "DI Barcarena",
+      "ATIVA",
+      "IRREGULAR",
+      "-",
+      "640416",
+      "-",
+      "SIM"
+    ],
+    [
+      "ARTEMYN MINERALS RIO CAPIM CAULIM",
+      "DI Barcarena",
+      "ATIVA",
+      "IRREGULAR",
+      "-",
+      "1472889",
+      "-",
+      "SIM"
+    ],
+    [
+      "ARTEMYN MINERALS RIO CAPIM CAULIM",
+      "DI Barcarena",
+      "ATIVA",
+      "IRREGULAR",
+      "-",
+      "150000",
+      "-",
+      "SIM"
+    ],
+    [
+      "IPÊ PARTICIPAÇÕES LTDA",
+      "DI Barcarena",
+      "IMPLANTAÇÃO",
+      "REGULAR",
+      "-",
+      "49860",
+      "-",
+      "NÃO"
+    ],
+    [
+      "KW DO BRASIL LTDA",
+      "DI Barcarena",
+      "ATIVA",
+      "REGULAR",
+      "-",
+      "31173",
+      "-",
+      "NÃO"
+    ],
+    [
+      "MATAPI TRANSPORTE MULTI MODAL LTDA",
+      "DI Barcarena",
+      "ATIVA",
+      "REGULAR",
+      "-",
+      "10008",
+      "-",
+      "NÃO"
+    ],
+    [
+      "MATAPI TRANSPORTE MULTI MODAL LTDA",
+      "DI Barcarena",
+      "ATIVA",
+      "REGULAR",
+      "-",
+      "4976",
+      "-",
+      "NÃO"
+    ],
+    [
+      "MATAPI TRANSPORTE MULTI MODAL LTDA",
+      "DI Barcarena",
+      "ATIVA",
+      "REGULAR",
+      "-",
+      "15000",
+      "-",
+      "NÃO"
+    ],
+    [
+      "MATAPI TRANSPORTE MULTI MODAL LTDA",
+      "DI Barcarena",
+      "ATIVA",
+      "REGULAR",
+      "-",
+      "56527",
+      "-",
+      "SIM"
+    ],
+    [
+      "METALURGICA SÃO TOMÉ/J.ALEXANDRE E PINHO",
+      "DI Barcarena",
+      "ATIVA",
+      "REGULAR",
+      "-",
+      "10000",
+      "-",
+      "NÃO"
+    ],
+    [
+      "MELO CONSTRUTORA & MOVIMENTO LTDA",
+      "DI Barcarena",
+      "ATIVA",
+      "IRREGULAR",
+      "-",
+      "216161",
+      "-",
+      "NÃO"
+    ],
+    [
+      "MELO CONSTRUTORA & MOVIMENTO LTDA",
+      "DI Barcarena",
+      "ATIVA",
+      "IRREGULAR",
+      "-",
+      "2599",
+      "-",
+      "SIM"
+    ],
+    [
+      "MEGA BRASIL LOGÍSTICA LTDA EIRELI",
+      "DI Barcarena",
+      "ATIVA",
+      "REGULAR",
+      "-",
+      "50939",
+      "-",
+      "NÃO"
+    ],
+    [
+      "MS TERRAPLENAGEM LTDA",
+      "DI Barcarena",
+      "IMPLANTAÇÃO",
+      "REGULAR",
+      "-",
+      "26337",
+      "-",
+      "NÃO"
+    ],
+    [
+      "MS TERRAPLENAGEM LTDA",
+      "DI Barcarena",
+      "ATIVA",
+      "REGULAR",
+      "-",
+      "13495",
+      "-",
+      "SIM"
+    ],
+    [
+      "MS TERRAPLENAGEM LTDA",
+      "DI Barcarena",
+      "ATIVA",
+      "REGULAR",
+      "-",
+      "3244",
+      "-",
+      "SIM"
+    ],
+    [
+      "MS TERRAPLENAGEM LTDA",
+      "DI Barcarena",
+      "ATIVA",
+      "REGULAR",
+      "-",
+      "3000",
+      "-",
+      "SIM"
+    ],
+    [
+      "MINERAÇÃO BURITIRAMA S/A",
+      "DI Barcarena",
+      "INATIVA",
+      "REGULAR",
+      "-",
+      "113364",
+      "-",
+      "SIM"
+    ],
+    [
+      "MINERAÇÃO BURITIRAMA S/A",
+      "DI Barcarena",
+      "INATIVA",
+      "REGULAR",
+      "-",
+      "56328",
+      "-",
+      "SIM"
+    ],
+    [
+      "MAPIN - MANUTENÇÕES E PINTURAS -  À VENDA",
+      "DI Barcarena",
+      "ATIVA",
+      "IRREGULAR",
+      "-",
+      "2891",
+      "-",
+      "NÃO"
+    ],
+    [
+      "MONTANEX MONTAGENS IND.",
+      "DI Barcarena",
+      "-",
+      "-",
+      "-",
+      "-",
+      "-",
+      "-"
+    ],
+    [
+      "-",
+      "DI Barcarena",
+      "-",
+      "-",
+      "-",
+      "-",
+      "-",
+      "-"
+    ],
+    [
+      "-",
+      "DI Barcarena",
+      "-",
+      "-",
+      "-",
+      "-",
+      "-",
+      "-"
+    ],
+    [
+      "-",
+      "DI Barcarena",
+      "-",
+      "-",
+      "-",
+      "-",
+      "-",
+      "-"
+    ],
+    [
+      "-",
+      "DI Barcarena",
+      "-",
+      "-",
+      "-",
+      "-",
+      "-",
+      "-"
+    ],
+    [
+      "-",
+      "DI Barcarena",
+      "-",
+      "-",
+      "-",
+      "-",
+      "-",
+      "-"
+    ]
+  ],
+  "licitDb": [
+    {
+      "pae": "2024/19982",
+      "ano": 2024,
+      "objeto": "Serviços de revitalização do DI Ananindeua",
+      "status": "Em Instrução",
+      "prioridade": false,
+      "etapa_num": 32,
+      "etapa": "CCI",
+      "etapa_full": "CCI — Solicita autorização de empenho ao presidente",
+      "dt_ultima": "2024-04-16",
+      "ultimo_status": "Recomendações do CCI e da DIJUR cumpridas, processo enviado à DAF em 16/04",
+      "modalidade": "Concorrência",
+      "valor": 2824884.88,
+      "diretoria": "DITEC",
+      "idade": 738
+    },
+    {
+      "pae": "2024/207917",
+      "ano": 2024,
+      "objeto": "Contratação de Licenciamento Ambiental DI Castanhal",
+      "status": "Em Instrução",
+      "prioridade": true,
+      "etapa_num": 11,
+      "etapa": "DIJUR/CCI",
+      "etapa_full": "DIJUR/CCI — Emite parecer sobre minuta do edital + termo de acato do presidente",
+      "dt_ultima": "2024-04-09",
+      "ultimo_status": "APres desde 23/02/2024 - Elaborar matriz de risco",
+      "modalidade": "Concorrência",
+      "valor": null,
+      "diretoria": "DITEC",
+      "idade": 745
+    },
+    {
+      "pae": "2024/19982",
+      "ano": 2024,
+      "objeto": "Contratação Revitalização DI Ananindeua",
+      "status": "Em Instrução",
+      "prioridade": false,
+      "etapa_num": 9,
+      "etapa": "DAF",
+      "etapa_full": "DAF — Elabora minuta do edital",
+      "dt_ultima": "2024-01-26",
+      "ultimo_status": "Ger. Licitações desde 26/01/2024 - Elaborar minuta de edital de licitação",
+      "modalidade": "Concorrência",
+      "valor": null,
+      "diretoria": "DITEC",
+      "idade": 819
+    },
+    {
+      "pae": "2024/214840",
+      "ano": 2024,
+      "objeto": "Contratação Revitalização DI Marabá",
+      "status": "Em Instrução",
+      "prioridade": false,
+      "etapa_num": 9,
+      "etapa": "DAF",
+      "etapa_full": "DAF — Elabora minuta do edital",
+      "dt_ultima": "2024-04-03",
+      "ultimo_status": "APres desde 26/01/2024 - Elaborar matriz de risco",
+      "modalidade": "Concorrência",
+      "valor": null,
+      "diretoria": "DITEC",
+      "idade": 751
+    },
+    {
+      "pae": "2024/220246",
+      "ano": 2024,
+      "objeto": "Cercamento de área DI Castanhal",
+      "status": "Em Instrução",
+      "prioridade": false,
+      "etapa_num": 11,
+      "etapa": "DIJUR/CCI",
+      "etapa_full": "DIJUR/CCI — Emite parecer sobre minuta do edital + termo de acato do presidente",
+      "dt_ultima": "2024-04-04",
+      "ultimo_status": "APres desde 27/01/2025 - Elaborar matriz de risco",
+      "modalidade": "Concorrência",
+      "valor": null,
+      "diretoria": "DITEC",
+      "idade": 750
+    },
+    {
+      "pae": "2023/1296421",
+      "ano": 2023,
+      "objeto": "Obras de implantação do Condomínio Industrial de Castanhal — Fase 01",
+      "status": "Em Instrução",
+      "prioridade": true,
+      "etapa_num": 1,
+      "etapa": "Interessado",
+      "etapa_full": "Interessado — Encaminha memorando + TR + pesquisa de preços + mapa de riscos",
+      "dt_ultima": "2024-04-12",
+      "ultimo_status": "À GL em 26/01/2024, minuta do edital sendo elaborada pela GL, após envio dos arquivos editáveis pela DITEC em 05/02/2024",
+      "modalidade": "Concorrência",
+      "valor": 206096384.47,
+      "diretoria": "DITEC",
+      "idade": 742
+    },
+    {
+      "pae": "2023/1312482",
+      "ano": 2023,
+      "objeto": "Contratação de Projeto Executivo ZPE Barcarena",
+      "status": "Em Instrução",
+      "prioridade": false,
+      "etapa_num": 10,
+      "etapa": "DAF",
+      "etapa_full": "DAF — Encaminha para análise jurídica e da CCI",
+      "dt_ultima": "2024-04-11",
+      "ultimo_status": "Encontra-se na DERI a pedidos do Diretor Pádua desde o dia da última tramitação",
+      "modalidade": "Concorrência",
+      "valor": null,
+      "diretoria": "DITEC",
+      "idade": 743
+    },
+    {
+      "pae": "2023/1042144",
+      "ano": 2023,
+      "objeto": "Contratação de Projeto Executivo DI Breves",
+      "status": "Edital Publicado",
+      "prioridade": false,
+      "etapa_num": 17,
+      "etapa": "CPL/Pregão",
+      "etapa_full": "Pregão/CPL — Realiza licitação",
+      "dt_ultima": "2024-03-18",
+      "ultimo_status": "Edital Publicado — Visita técnica com possíveis concorrentes",
+      "modalidade": "Concorrência",
+      "valor": null,
+      "diretoria": "DITEC",
+      "idade": 767
+    },
+    {
+      "pae": "2024/149782",
+      "ano": 2024,
+      "objeto": "Aquisição de alimentos de uso comum",
+      "status": "Objeto Adjudicado",
+      "prioridade": false,
+      "etapa_num": 38,
+      "etapa": "GAB",
+      "etapa_full": "GAB — Assinatura / Homologação",
+      "dt_ultima": null,
+      "ultimo_status": "À DAF em 07/02/2024, para solicitar autorização de contratação ao Presidente/Gabinete",
+      "modalidade": "Concorrência",
+      "valor": 10636.1,
+      "diretoria": "DAF",
+      "idade": null
+    },
+    {
+      "pae": "2023/1223685",
+      "ano": 2023,
+      "objeto": "Aquisição de aeronave não tripulada — Drone",
+      "status": "Objeto Adjudicado",
+      "prioridade": false,
+      "etapa_num": 38,
+      "etapa": "GAB",
+      "etapa_full": "GAB — Assinatura / Homologação",
+      "dt_ultima": null,
+      "ultimo_status": "À DIJUR em 26/01/2024, para análise e parecer da minuta do edital da cotação eletrônica",
+      "modalidade": "Pregão",
+      "valor": 7375.7,
+      "diretoria": "DITEC",
+      "idade": null
+    },
+    {
+      "pae": "2023/390021",
+      "ano": 2023,
+      "objeto": "Incorporação Imobiliária DI Castanhal",
+      "status": "Objeto Adjudicado",
+      "prioridade": false,
+      "etapa_num": 38,
+      "etapa": "GAB",
+      "etapa_full": "GAB — Assinatura / Homologação",
+      "dt_ultima": null,
+      "ultimo_status": "Segundo termo aditivo elaborado, processo está na DAF desde 16/04/24",
+      "modalidade": "Concorrência",
+      "valor": null,
+      "diretoria": "DITEC",
+      "idade": null
+    },
+    {
+      "pae": "2022/1589944",
+      "ano": 2022,
+      "objeto": "Licenciamento Ambiental do Condomínio Industrial de Castanhal",
+      "status": "Objeto Fracassado",
+      "prioridade": false,
+      "etapa_num": 99,
+      "etapa": "Encerrado",
+      "etapa_full": "Encerrado — Processo fracassado pela CPL",
+      "dt_ultima": null,
+      "ultimo_status": "À DIJUR em 23/01/2024, para análise e parecer final quanto aos recursos interpostos à LP nº 001/2023, finalizada e considerada fracassada",
+      "modalidade": "Concorrência",
+      "valor": 767628.7,
+      "diretoria": "DITEC",
+      "idade": 768
+    }
+  ],
+  "licitFluxo": [
+    {
+      "num": 1,
+      "label": "Interessado",
+      "short": "Interessado"
+    },
+    {
+      "num": 9,
+      "label": "DAF — Minuta Edital",
+      "short": "DAF"
+    },
+    {
+      "num": 10,
+      "label": "DAF — Análise Jur.",
+      "short": "DAF/CCI"
+    },
+    {
+      "num": 11,
+      "label": "DIJUR/CCI — Parecer",
+      "short": "DIJUR"
+    },
+    {
+      "num": 17,
+      "label": "CPL — Licitação",
+      "short": "CPL"
+    },
+    {
+      "num": 32,
+      "label": "CCI — Empenho",
+      "short": "CCI"
+    },
+    {
+      "num": 38,
+      "label": "GAB — Homologação",
+      "short": "GAB"
+    }
+  ],
+  "ditecObras": [
+    {
+      "id": "castanhal",
+      "nome": "DI Castanhal — Distrito Industrial de Castanhal",
+      "local": "Castanhal, PA",
+      "contrato": "Lado A Leste",
+      "inicio": "2026-04-01",
+      "fim": "2027-09-14",
+      "valor_total": 99358672.61,
+      "valor_realizado": 11976000,
+      "exec_geral": 12.1,
+      "responsavel": "ricardo.monteiro@codec.pa.gov.br",
+      "itens": [
+        {
+          "item": "SERVIÇOS PRELIMINARES",
+          "vp": 55538.84,
+          "vr": 30000,
+          "pct": 54,
+          "dur": 30,
+          "ini": "2026-04-01",
+          "fim": "2026-05-12"
+        },
+        {
+          "item": "ADMINISTRAÇÃO DA OBRA",
+          "vp": 1413982.31,
+          "vr": 0,
+          "pct": 0,
+          "dur": 365,
+          "ini": "2026-04-01",
+          "fim": "2027-08-24"
+        },
+        {
+          "item": "CANTEIRO DE OBRA",
+          "vp": 1421698.49,
+          "vr": 0,
+          "pct": 0,
+          "dur": 60,
+          "ini": "2026-04-01",
+          "fim": "2026-06-23"
+        },
+        {
+          "item": "TERRAPLENAGEM",
+          "vp": 9102103.36,
+          "vr": 4194000,
+          "pct": 46.1,
+          "dur": 270,
+          "ini": "2026-04-22",
+          "fim": "2027-05-04"
+        },
+        {
+          "item": "PAVIMENTAÇÃO",
+          "vp": 20884272.19,
+          "vr": 1907000,
+          "pct": 9.1,
+          "dur": 270,
+          "ini": "2026-06-24",
+          "fim": "2027-07-06"
+        },
+        {
+          "item": "INFRAESTRUTURA",
+          "vp": 36730369.55,
+          "vr": 2664000,
+          "pct": 7.3,
+          "dur": 270,
+          "ini": "2026-05-13",
+          "fim": "2027-05-25"
+        },
+        {
+          "item": "PAVILHÃO EDIFICADO",
+          "vp": 5927793.43,
+          "vr": 0,
+          "pct": 0,
+          "dur": 120,
+          "ini": "2026-04-01",
+          "fim": "2026-09-15"
+        },
+        {
+          "item": "GALPÃO",
+          "vp": 7325642.5,
+          "vr": 1217000,
+          "pct": 16.6,
+          "dur": 150,
+          "ini": "2026-09-16",
+          "fim": "2027-04-13"
+        },
+        {
+          "item": "QUIOSQUES",
+          "vp": 257732.62,
+          "vr": 0,
+          "pct": 0,
+          "dur": 30,
+          "ini": "2027-04-14",
+          "fim": "2027-05-25"
+        },
+        {
+          "item": "ILUMINAÇÃO PÚBLICA",
+          "vp": 3880555.94,
+          "vr": 0,
+          "pct": 0,
+          "dur": 150,
+          "ini": "2026-12-30",
+          "fim": "2027-07-27"
+        },
+        {
+          "item": "SINALIZAÇÃO",
+          "vp": 628622.54,
+          "vr": 0,
+          "pct": 0,
+          "dur": 150,
+          "ini": "2026-09-16",
+          "fim": "2027-04-13"
+        },
+        {
+          "item": "PAISAGISMO",
+          "vp": 1609281.61,
+          "vr": 0,
+          "pct": 0,
+          "dur": 120,
+          "ini": "2026-09-16",
+          "fim": "2027-03-02"
+        },
+        {
+          "item": "PÓRTICO DE ENTRADA",
+          "vp": 3455277.23,
+          "vr": 150000,
+          "pct": 4.3,
+          "dur": 120,
+          "ini": "2026-09-16",
+          "fim": "2027-03-02"
+        },
+        {
+          "item": "URBANIZAÇÃO",
+          "vp": 330439.72,
+          "vr": 167000,
+          "pct": 50.5,
+          "dur": 60,
+          "ini": "2027-04-14",
+          "fim": "2027-07-06"
+        },
+        {
+          "item": "CERCAS E DEFENSAS",
+          "vp": 6283445.13,
+          "vr": 1647000,
+          "pct": 26.2,
+          "dur": 300,
+          "ini": "2026-06-24",
+          "fim": "2027-08-17"
+        },
+        {
+          "item": "TOTEM",
+          "vp": 51917.15,
+          "vr": 0,
+          "pct": 0,
+          "dur": 30,
+          "ini": "2027-04-14",
+          "fim": "2027-05-25"
+        },
+        {
+          "item": "ENTREGA DA OBRA",
+          "vp": 1,
+          "vr": 0,
+          "pct": 0,
+          "dur": 15,
+          "ini": "2027-08-25",
+          "fim": "2027-09-14"
+        }
+      ]
+    },
+    {
+      "id": "breves",
+      "nome": "DI Breves — Distrito Industrial de Breves",
+      "local": "Breves, PA",
+      "contrato": "—",
+      "inicio": "—",
+      "fim": "—",
+      "valor_total": 0,
+      "valor_realizado": 0,
+      "exec_geral": 0,
+      "responsavel": "—",
+      "itens": []
+    },
+    {
+      "id": "barcarena",
+      "nome": "ZPE Barcarena — Zona de Processamento de Exportação",
+      "local": "Barcarena, PA",
+      "contrato": "—",
+      "inicio": "—",
+      "fim": "—",
+      "valor_total": 0,
+      "valor_realizado": 0,
+      "exec_geral": 0,
+      "responsavel": "—",
+      "itens": []
+    }
+  ],
+  "dashMonths": [
+    "jan",
+    "fev",
+    "mar",
+    "abr"
+  ],
+  "savedAt": "__INIT__"
+}

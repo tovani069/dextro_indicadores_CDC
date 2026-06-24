@@ -116,6 +116,19 @@
             display: block !important
         }
 
+        .nav-dextro {
+            height: 56px;
+            object-fit: contain
+        }
+
+        [data-theme="light"] .nav-dextro-dark {
+            display: none
+        }
+
+        [data-theme="dark"] .nav-dextro-light {
+            display: none
+        }
+
         .nav-divider {
             width: 1px;
             height: 32px;
@@ -992,6 +1005,10 @@
                 class="theme-btn" style="font-size:14px;padding:6px 10px">⬆</button>
             <span class="date-chip mono" id="dateChip"></span>
             <button class="theme-btn" onclick="toggleTheme()" id="themeBtn"></button>
+            <button class="theme-btn" onclick="salvarNoServidor()" id="btnSalvar" title="Salvar dados para todos" style="font-weight:600">💾 Salvar</button>
+            <div class="nav-divider"></div>
+            <img src="logo_dextro_light.png" class="nav-dextro nav-dextro-light" alt="Dextro">
+            <img src="logo_dextro_dark.png" class="nav-dextro nav-dextro-dark" alt="Dextro">
         </div>
     </nav>
 
@@ -1952,11 +1969,230 @@
         }
 
         // INIT 
+
+        // ══════════════════════════════════════════════════════════════
+        // PERSISTÊNCIA — Salvar = commit no GitHub (dados_app.json)
+        // Prioridade ao abrir: dados_app.json > localStorage > dados embutidos.
+        // ══════════════════════════════════════════════════════════════
+        let SERVER_LOADED = false;
+
+        // Monta o objeto completo com TODAS as bases do dashboard.
+        function montarPayloadCompleto() {
+            return {
+                db: typeof DB !== 'undefined' ? DB : null,
+                planoDb: typeof PLANO_DB !== 'undefined' ? PLANO_DB : null,
+                dafReceitaProj: typeof DAF_RECEITA_PROJ !== 'undefined' ? DAF_RECEITA_PROJ : null,
+                dafReceitaReal: typeof DAF_RECEITA_REAL !== 'undefined' ? DAF_RECEITA_REAL : null,
+                dafDespesaProj: typeof DAF_DESPESA_PROJ !== 'undefined' ? DAF_DESPESA_PROJ : null,
+                dafDespesaReal: typeof DAF_DESPESA_REAL !== 'undefined' ? DAF_DESPESA_REAL : null,
+                emp: typeof EMP !== 'undefined' ? EMP : null,
+                empAll: typeof EMP_ALL !== 'undefined' ? EMP_ALL : null,
+                licitDb: typeof LICIT_DB !== 'undefined' ? LICIT_DB : null,
+                licitFluxo: typeof LICIT_FLUXO !== 'undefined' ? LICIT_FLUXO : null,
+                ditecObras: typeof DITEC_OBRAS !== 'undefined' ? DITEC_OBRAS : null,
+                dashMonths: (typeof window !== 'undefined' && window.DASH_MONTHS) ? window.DASH_MONTHS : null,
+                savedAt: new Date().toISOString()
+            };
+        }
+
+        // Substitui o conteúdo de um array const "por dentro" (sem reatribuir).
+        function _replaceArray(target, src) {
+            if (!Array.isArray(target) || !Array.isArray(src)) return;
+            target.length = 0;
+            Array.prototype.push.apply(target, src);
+        }
+        // Substitui as chaves de um objeto const "por dentro".
+        function _replaceObject(target, src) {
+            if (!target || typeof target !== 'object' || !src || typeof src !== 'object') return;
+            Object.keys(target).forEach(k => { delete target[k]; });
+            Object.assign(target, src);
+        }
+
+        // Aplica de volta nas variáveis globais o que veio salvo.
+        function aplicarPayload(p) {
+            if (!p) return;
+            if (typeof DB !== 'undefined' && Array.isArray(p.db)) _replaceArray(DB, p.db);
+            if (typeof PLANO_DB !== 'undefined' && Array.isArray(p.planoDb)) _replaceArray(PLANO_DB, p.planoDb);
+            if (typeof DAF_RECEITA_PROJ !== 'undefined' && Array.isArray(p.dafReceitaProj)) _replaceArray(DAF_RECEITA_PROJ, p.dafReceitaProj);
+            if (typeof DAF_RECEITA_REAL !== 'undefined' && Array.isArray(p.dafReceitaReal)) _replaceArray(DAF_RECEITA_REAL, p.dafReceitaReal);
+            if (typeof DAF_DESPESA_PROJ !== 'undefined' && Array.isArray(p.dafDespesaProj)) _replaceArray(DAF_DESPESA_PROJ, p.dafDespesaProj);
+            if (typeof DAF_DESPESA_REAL !== 'undefined' && Array.isArray(p.dafDespesaReal)) _replaceArray(DAF_DESPESA_REAL, p.dafDespesaReal);
+            if (typeof EMP !== 'undefined' && p.emp) _replaceObject(EMP, p.emp);
+            if (typeof EMP_ALL !== 'undefined' && Array.isArray(p.empAll)) _replaceArray(EMP_ALL, p.empAll);
+            if (typeof LICIT_DB !== 'undefined' && Array.isArray(p.licitDb)) _replaceArray(LICIT_DB, p.licitDb);
+            if (typeof LICIT_FLUXO !== 'undefined' && Array.isArray(p.licitFluxo)) _replaceArray(LICIT_FLUXO, p.licitFluxo);
+            if (typeof DITEC_OBRAS !== 'undefined' && Array.isArray(p.ditecObras)) _replaceArray(DITEC_OBRAS, p.ditecObras);
+            if (typeof window !== 'undefined' && Array.isArray(p.dashMonths)) window.DASH_MONTHS = p.dashMonths;
+        }
+
+        // Carrega os dados salvos no repositório (dados_app.json, gerado a cada "Salvar")
+        // e renderiza a tela UMA única vez, já com os dados certos.
+        // Prioridade: dados_app.json > localStorage (cache) > dados embutidos no HTML.
+        function carregarDoServidor() {
+            return fetch('dados_app.json?v=' + Date.now(), { cache: 'no-store' })
+                .then(r => r.ok ? r.json() : null)
+                .then(data => {
+                    if (data && typeof data === 'object' && (data.db || data.planoDb || data.emp)) {
+                        aplicarPayload(data);
+                        try { localStorage.setItem('codecDB', JSON.stringify(data)); } catch (e) {}
+                        SERVER_LOADED = true;
+                    } else {
+                        carregarDoLocal();   // sem arquivo no servidor → tenta o cache local
+                    }
+                })
+                .catch(() => { carregarDoLocal(); })
+                .finally(() => { if (typeof render === 'function') render(); });
+        }
+
+        // Carrega do cache local (localStorage) — usado se o dados_app.json não existir.
+        function carregarDoLocal() {
+            try {
+                const raw = localStorage.getItem('codecDB');
+                if (!raw) return false;
+                const data = JSON.parse(raw);
+                if (data && typeof data === 'object') { aplicarPayload(data); return true; }
+            } catch (e) {}
+            return false;
+        }
+
+        // Salvar = commitar no GitHub. Os dados ficam versionados no repo e todos veem após
+        // a republicação do Vercel (alguns segundos).
+        function salvarNoServidor() {
+            return pedirSenha(async (pw) => {
+                const payload = montarPayloadCompleto();
+                try { localStorage.setItem('codecDB', JSON.stringify(payload)); } catch (e) {}
+                const r = await fetch('/api/commit', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'x-edit-password': pw },
+                    body: JSON.stringify(payload)
+                });
+                if (r.status === 401) { return 'senha'; }   // senha errada → modal mostra X e pede de novo
+                if (!r.ok) {
+                    const e = await r.json().catch(() => ({}));
+                    throw new Error(e.error || ('Erro ' + r.status));
+                }
+                return true;                                  // sucesso → modal mostra o check verde
+            });
+        }
+
+        // ── Modal de senha estilizado ─────────────────────────────────
+        function _pmEnsureModal() {
+            if (document.getElementById('pm-modal-overlay')) return;
+            const css = `
+  :root{--pm-ok:#00C8A0;--pm-risk:#FF5C6A;--pm-risk-bg:rgba(255,92,106,.12);--pm-warn:#FF9B00}
+  #pm-modal-overlay{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;
+    background:rgba(10,12,20,.45);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+    opacity:0;pointer-events:none;transition:opacity .2s ease}
+  #pm-modal-overlay.show{opacity:1;pointer-events:auto}
+  .pm-card{width:min(92vw,400px);background:var(--bg2);border:1px solid var(--border2);border-radius:18px;
+    box-shadow:var(--shadow-lg);padding:26px 26px 22px;transform:translateY(8px) scale(.97);
+    transition:transform .22s cubic-bezier(.2,.8,.25,1);font-family:'IBM Plex Sans',sans-serif}
+  #pm-modal-overlay.show .pm-card{transform:translateY(0) scale(1)}
+  .pm-card.pm-shake{animation:pm-shake .4s}
+  @keyframes pm-shake{10%,90%{transform:translateX(-2px)}20%,80%{transform:translateX(4px)}
+    30%,50%,70%{transform:translateX(-7px)}40%,60%{transform:translateX(7px)}}
+  .pm-ico{width:46px;height:46px;border-radius:12px;background:var(--accent-lt);color:var(--accent);
+    display:flex;align-items:center;justify-content:center;margin:0 auto 14px}
+  .pm-title{font-size:16px;font-weight:600;color:var(--text);text-align:center;letter-spacing:-.2px}
+  .pm-sub{font-size:12.5px;color:var(--text3);text-align:center;margin-top:5px;line-height:1.45}
+  .pm-input{width:100%;margin-top:18px;padding:12px 14px;border:1.5px solid var(--border2);border-radius:10px;
+    background:var(--bg3);color:var(--text);font-size:14px;font-family:inherit;outline:none;transition:border-color .15s,box-shadow .15s;box-sizing:border-box}
+  .pm-input:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-lt)}
+  .pm-input.pm-err{border-color:var(--pm-risk);box-shadow:0 0 0 3px var(--pm-risk-bg)}
+  .pm-msg-err{color:var(--pm-risk);font-size:12px;text-align:center;margin-top:9px;min-height:15px;font-weight:500}
+  .pm-row{display:flex;gap:10px;margin-top:18px}
+  .pm-btn{flex:1;padding:11px;border-radius:10px;font-size:13.5px;font-weight:600;cursor:pointer;
+    font-family:inherit;border:1px solid var(--border2);transition:all .15s}
+  .pm-btn-cancel{background:var(--bg3);color:var(--text2)}
+  .pm-btn-cancel:hover{background:var(--bg4)}
+  .pm-btn-ok{background:var(--accent);color:var(--bg2);border-color:var(--accent)}
+  .pm-btn-ok:hover{filter:brightness(1.08)}
+  .pm-status{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:6px 0 2px}
+  .pm-spinner{width:48px;height:48px;border-radius:50%;border:4px solid var(--border2);border-top-color:var(--accent);animation:pm-spin .8s linear infinite}
+  @keyframes pm-spin{to{transform:rotate(360deg)}}
+  .pm-status-msg{font-size:14px;font-weight:600;color:var(--text);margin-top:16px;text-align:center}
+  .pm-circle{width:66px;height:66px}
+  .pm-circle circle{fill:none;stroke-width:5;stroke-linecap:round}
+  .pm-circle .pm-ring{stroke-dasharray:170;stroke-dashoffset:170;animation:pm-ring .5s ease forwards}
+  .pm-circle .pm-mark{stroke-dasharray:60;stroke-dashoffset:60;animation:pm-mark .35s .35s ease forwards}
+  @keyframes pm-ring{to{stroke-dashoffset:0}}
+  @keyframes pm-mark{to{stroke-dashoffset:0}}
+  `;
+            const st = document.createElement('style'); st.textContent = css; document.head.appendChild(st);
+            const ov = document.createElement('div'); ov.id = 'pm-modal-overlay';
+            ov.innerHTML = `<div class="pm-card" id="pm-card">
+    <div id="pm-input-view">
+      <div class="pm-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+      <div class="pm-title">Senha de edição</div>
+      <div class="pm-sub">Digite a senha para salvar os dados para todos.</div>
+      <input id="pm-input" class="pm-input" type="password" autocomplete="off" placeholder="Sua senha">
+      <div class="pm-msg-err" id="pm-msg-err"></div>
+      <div class="pm-row">
+        <button class="pm-btn pm-btn-cancel" id="pm-cancel">Cancelar</button>
+        <button class="pm-btn pm-btn-ok" id="pm-ok">Confirmar</button>
+      </div>
+    </div>
+    <div id="pm-status-view" style="display:none"></div>
+  </div>`;
+            document.body.appendChild(ov);
+        }
+
+        // Mostra o modal e devolve uma Promise com a senha (ou null se cancelar).
+        // onSubmit(pw) deve retornar Promise: true=sucesso, 'senha'=senha errada, ou lança erro.
+        function pedirSenha(onSubmit) {
+            _pmEnsureModal();
+            const ov = document.getElementById('pm-modal-overlay');
+            const card = document.getElementById('pm-card');
+            const inputView = document.getElementById('pm-input-view');
+            const statusView = document.getElementById('pm-status-view');
+            const input = document.getElementById('pm-input');
+            const errEl = document.getElementById('pm-msg-err');
+            const okBtn = document.getElementById('pm-ok');
+            const cancelBtn = document.getElementById('pm-cancel');
+
+            function open() { ov.classList.add('show'); setTimeout(() => input.focus(), 60); }
+            function close() { ov.classList.remove('show'); }
+            function showInput() { inputView.style.display = ''; statusView.style.display = 'none'; }
+            function showStatus(html) { inputView.style.display = 'none'; statusView.style.display = ''; statusView.innerHTML = html; }
+            const SPIN = `<div class="pm-status"><div class="pm-spinner"></div><div class="pm-status-msg">Salvando…</div></div>`;
+            const OKICO = `<div class="pm-status"><svg class="pm-circle" viewBox="0 0 66 66"><circle class="pm-ring" cx="33" cy="33" r="27" stroke="var(--pm-ok)"/><path class="pm-mark" d="M21 34 l8 8 l16 -17" stroke="var(--pm-ok)" fill="none" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="pm-status-msg" style="color:var(--pm-ok)">Salvo com sucesso!</div></div>`;
+            const ERRICO = `<div class="pm-status"><svg class="pm-circle" viewBox="0 0 66 66"><circle class="pm-ring" cx="33" cy="33" r="27" stroke="var(--pm-risk)"/><path class="pm-mark" d="M24 24 l18 18 M42 24 l-18 18" stroke="var(--pm-risk)" fill="none" stroke-width="5" stroke-linecap="round"/></svg><div class="pm-status-msg" style="color:var(--pm-risk)">Senha incorreta</div></div>`;
+
+            return new Promise(resolve => {
+                let done = false;
+                function finish(val) { if (done) return; done = true; cleanup(); close(); resolve(val); }
+                function cleanup() { okBtn.onclick = null; cancelBtn.onclick = null; input.onkeydown = null; }
+
+                async function submit() {
+                    const pw = input.value.trim();
+                    if (!pw) { input.classList.add('pm-err'); errEl.textContent = 'Digite a senha.'; return; }
+                    input.classList.remove('pm-err'); errEl.textContent = '';
+                    showStatus(SPIN);
+                    try {
+                        const r = await onSubmit(pw);
+                        if (r === true) { showStatus(OKICO); setTimeout(() => finish(pw), 1300); }
+                        else { // senha errada
+                            showStatus(ERRICO);
+                            setTimeout(() => { showInput(); input.value = ''; input.classList.add('pm-err'); errEl.textContent = 'Senha incorreta. Tente novamente.'; card.classList.add('pm-shake'); setTimeout(() => card.classList.remove('pm-shake'), 420); input.focus(); }, 1100);
+                        }
+                    } catch (e) {
+                        showStatus(`<div class="pm-status"><svg class="pm-circle" viewBox="0 0 66 66"><circle class="pm-ring" cx="33" cy="33" r="27" stroke="var(--pm-warn)"/><path class="pm-mark" d="M24 24 l18 18 M42 24 l-18 18" stroke="var(--pm-warn)" fill="none" stroke-width="5" stroke-linecap="round"/></svg><div class="pm-status-msg" style="color:var(--pm-warn)">Erro ao salvar</div><div class="pm-sub" style="margin-top:8px">${(e && e.message) || 'Tente novamente.'}</div></div>`);
+                        setTimeout(() => { showInput(); errEl.textContent = 'Falha de conexão. Tente novamente.'; input.focus(); }, 1600);
+                    }
+                }
+                okBtn.onclick = submit;
+                cancelBtn.onclick = () => finish(null);
+                input.onkeydown = e => { if (e.key === 'Enter') submit(); if (e.key === 'Escape') finish(null); };
+                showInput(); input.value = ''; errEl.textContent = ''; input.classList.remove('pm-err');
+                open();
+            });
+        }
+
         (function init() {
             try {
             const now = new Date();
             const monthNames = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez']; document.getElementById('dateChip').textContent = 'Atualizado ' + monthNames[now.getMonth()] + '/' + now.getFullYear();
-            render();
+            carregarDoServidor();
             } catch (e) { document.getElementById('mainContent').innerHTML = '<div style="padding:40px;text-align:center"><h2>Erro ao carregar</h2><p style="color:var(--text3)">' + e.message + '</p></div>'; }
         })();
 
