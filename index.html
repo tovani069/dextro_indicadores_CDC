@@ -1107,7 +1107,7 @@
         </div>
         <div class="nav-right">
             <span class="date-chip mono" id="dateChip"></span>
-            <button class="theme-btn" onclick="toggleTheme()" id="themeBtn"></button>
+            <button class="theme-btn" onclick="toggleTheme()" id="themeBtn">Tema</button>
             <div class="nav-divider"></div>
             <img src="logo_dextro_light.png" class="nav-dextro nav-dextro-light" alt="Dextro">
             <img src="logo_dextro_dark.png" class="nav-dextro nav-dextro-dark" alt="Dextro">
@@ -2119,8 +2119,19 @@
             const cur = document.documentElement.getAttribute('data-theme');
             const nxt = cur === 'light' ? 'dark' : 'light';
             document.documentElement.setAttribute('data-theme', nxt);
-            document.getElementById('themeBtn').textContent = nxt === 'dark' ? '🌙' : '☀️';
             render();
+        }
+
+        // Data de atualização (no formato DD/MM/AAAA), vinda do savedAt salvo.
+        function formatarData(iso) {
+            let d = iso ? new Date(iso) : new Date();
+            if (isNaN(d.getTime())) d = new Date();
+            const p = n => ('0' + n).slice(-2);
+            return p(d.getDate()) + '/' + p(d.getMonth() + 1) + '/' + d.getFullYear();
+        }
+        function setDateChip(iso) {
+            const el = document.getElementById('dateChip');
+            if (el) el.textContent = 'Atualizado ' + formatarData(iso);
         }
         function toggleSidebar() {
             document.getElementById('sidebar').classList.toggle('collapsed');
@@ -2194,6 +2205,7 @@
                         aplicarPayload(data);
                         try { localStorage.setItem('codecDB', JSON.stringify(data)); } catch (e) {}
                         SERVER_LOADED = true;
+                        setDateChip(data.savedAt);
                     } else {
                         carregarDoLocal();   // sem arquivo no servidor → tenta o cache local
                     }
@@ -2229,6 +2241,7 @@
                     const e = await r.json().catch(() => ({}));
                     throw new Error(e.error || ('Erro ' + r.status));
                 }
+                setDateChip(payload.savedAt);
                 return true;                                  // sucesso → modal mostra o check verde
             });
         }
@@ -2349,7 +2362,7 @@
         (function init() {
             try {
             const now = new Date();
-            const monthNames = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez']; document.getElementById('dateChip').textContent = 'Atualizado ' + monthNames[now.getMonth()] + '/' + now.getFullYear();
+            setDateChip(null);
             carregarDoServidor();
             } catch (e) { document.getElementById('mainContent').innerHTML = '<div style="padding:40px;text-align:center"><h2>Erro ao carregar</h2><p style="color:var(--text3)">' + e.message + '</p></div>'; }
         })();
