@@ -337,6 +337,48 @@
             color: var(--text)
         }
 
+        .sidebar-tools {
+            margin-top: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px
+        }
+
+        .sidebar-tools .tool-btn {
+            width: 100%;
+            padding: 7px;
+            font-size: 12px;
+            font-family: 'IBM Plex Sans', sans-serif;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            background: var(--bg3);
+            color: var(--text2);
+            cursor: pointer;
+            transition: all .2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            font-weight: 500
+        }
+
+        .sidebar-tools .tool-btn:hover {
+            background: var(--bg4);
+            color: var(--text)
+        }
+
+        .sidebar-tools .tool-btn.save {
+            background: var(--accent);
+            color: var(--bg2);
+            border-color: var(--accent);
+            font-weight: 600
+        }
+
+        .sidebar-tools .tool-btn.save:hover {
+            filter: brightness(1.08);
+            color: var(--bg2)
+        }
+
         /* MAIN */
         .main {
             flex: 1;
@@ -1000,12 +1042,8 @@
             </div>
         </div>
         <div class="nav-right">
-            <input type="file" id="fileImport" accept=".xlsx,.xls" style="display:none" onchange="importExcel(event)">
-            <button id="btnImport" onclick="document.getElementById('fileImport').click()"
-                class="theme-btn" style="font-size:14px;padding:6px 10px">⬆</button>
             <span class="date-chip mono" id="dateChip"></span>
             <button class="theme-btn" onclick="toggleTheme()" id="themeBtn"></button>
-            <button class="theme-btn" onclick="salvarNoServidor()" id="btnSalvar" title="Salvar dados para todos" style="font-weight:600">💾 Salvar</button>
             <div class="nav-divider"></div>
             <img src="logo_dextro_light.png" class="nav-dextro nav-dextro-light" alt="Dextro">
             <img src="logo_dextro_dark.png" class="nav-dextro nav-dextro-dark" alt="Dextro">
@@ -1039,6 +1077,12 @@
                     <option value="nd"> Sem Dados</option>
                 </select>
                 <button class="clear-btn" onclick="clearFilters()">× Limpar filtros</button>
+                <div class="sidebar-tools" id="sidebarTools">
+                    <input type="file" id="fileImport" accept=".xlsx,.xls" style="display:none" onchange="importExcel(event)">
+                    <button class="tool-btn" id="btnImport" onclick="document.getElementById('fileImport').click()" title="Importar planilha Excel">⬆ Importar</button>
+                    <button class="tool-btn" onclick="exportExcel()" title="Exportar indicadores para Excel">⬇ Exportar</button>
+                    <button class="tool-btn save" id="btnSalvar" onclick="salvarNoServidor()" title="Salvar dados para todos">💾 Salvar</button>
+                </div>
             </div>
         </div>
         <main class="main" id="mainContent"><div style="display:flex;align-items:center;justify-content:center;height:60vh;color:var(--text3);font-size:14px">Carregando...</div></main>
@@ -1849,6 +1893,7 @@
             linePageStart = 0;
             lineDirFilter = 'Todas';
             render();
+            updateSidebarTools();
         }
 
         // FILTERS 
@@ -1864,6 +1909,38 @@
             document.getElementById('filterNivel').value = '';
             document.getElementById('filterStatus').value = '';
             render();
+        }
+
+        // Exporta os indicadores (DB) para Excel — formato compatível com a importação.
+        function exportExcel() {
+            try {
+                const months = (window.DASH_MONTHS && window.DASH_MONTHS.length) ? window.DASH_MONTHS : ['jan', 'fev', 'mar', 'abr'];
+                const cap = s => s ? s.charAt(0).toUpperCase() + s.slice(1) : s;
+                const header = ['Diretoria', 'Perspectiva', 'Objetivo', 'Indicador', 'Nivel', 'Meta'].concat(months.map(cap));
+                const aoa = [header];
+                DB.forEach(r => {
+                    const row = [r.dir, r.persp, r.obj, r.ind, r.nivel, r.meta];
+                    months.forEach(m => row.push(r[m] === undefined ? null : r[m]));
+                    aoa.push(row);
+                });
+                const ws = XLSX.utils.aoa_to_sheet(aoa);
+                const wb = XLSX.utils.book_new();
+                XLSX.utils.book_append_sheet(wb, ws, 'Indicadores');
+                const now = new Date();
+                const p = n => ('0' + n).slice(-2);
+                const stamp = now.getFullYear() + p(now.getMonth() + 1) + p(now.getDate());
+                XLSX.writeFile(wb, 'indicadores_codec_' + stamp + '.xlsx');
+            } catch (e) {
+                alert('Erro ao exportar: ' + (e && e.message));
+            }
+        }
+
+        // Mostra os botões de Importar/Exportar/Salvar só nas telas de indicadores
+        // (Visão Geral até DITEC), escondendo nos demais módulos.
+        function updateSidebarTools() {
+            const IND = ['Geral', 'DAF', 'DAIN', 'DERI', 'ASCOM', 'DIJUR', 'DITEC'];
+            const el = document.getElementById('sidebarTools');
+            if (el) el.style.display = IND.indexOf(S.dir) >= 0 ? '' : 'none';
         }
 
         // IMPORTAÇÃO EXCEL
@@ -1945,10 +2022,10 @@
                     // Resetar input para permitir reimportação do mesmo arquivo
                     event.target.value = '';
                     render();
-                    if (btn) { btn.textContent = '✔'; btn.disabled = false; setTimeout(() => { btn.textContent = '⬆'; }, 3000); }
+                    if (btn) { btn.textContent = '✔'; btn.disabled = false; setTimeout(() => { btn.textContent = '⬆ Importar'; }, 3000); }
                     alert(`✅ Importação concluída!\n\n• Meses detectados: ${window.DASH_MONTHS.join(', ')}\n• Indicadores atualizados: ${matched} de ${DB.length}`);
                 } catch (err) {
-                    if (btn) { btn.textContent = '⬆'; btn.disabled = false; }
+                    if (btn) { btn.textContent = '⬆ Importar'; btn.disabled = false; }
                     event.target.value = '';
                     alert('Erro ao processar o arquivo:\n' + err.message);
                 }
@@ -2041,7 +2118,7 @@
                     }
                 })
                 .catch(() => { carregarDoLocal(); })
-                .finally(() => { if (typeof render === 'function') render(); });
+                .finally(() => { if (typeof render === 'function') render(); if (typeof updateSidebarTools === 'function') updateSidebarTools(); });
         }
 
         // Carrega do cache local (localStorage) — usado se o dados_app.json não existir.
