@@ -4608,6 +4608,89 @@ function dmToggleImport() {
   }
 }
 
+function dmToggleExport() {
+  var sec = document.getElementById('dmExportSection');
+  if (!sec) return;
+  sec.classList.toggle('open');
+  if (sec.classList.contains('open')) {
+    setTimeout(function(){ sec.scrollIntoView({ behavior:'smooth', block:'nearest' }); }, 50);
+  }
+}
+function dmExportSelected() {
+  var target = document.getElementById('dmExportSelect').value;
+  if (!target) { alert('Escolha qual planilha exportar.'); return; }
+  try { dmExport(target); }
+  catch (e) { alert('Erro ao exportar: ' + (e && e.message)); }
+}
+function _dmDownload(aoa, nome) {
+  var ws = XLSX.utils.aoa_to_sheet(aoa);
+  var wb = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb, ws, 'Dados');
+  var d = new Date(); var p = function(n){ return ('0'+n).slice(-2); };
+  var stamp = d.getFullYear()+p(d.getMonth()+1)+p(d.getDate());
+  XLSX.writeFile(wb, nome + '_' + stamp + '.xlsx');
+}
+// Números viram texto no formato brasileiro (vírgula decimal, sem milhar),
+// para o importador (dmNum) reler corretamente no round-trip.
+function _dmFmt(v) {
+  if (v === undefined || v === null) return '';
+  if (typeof v === 'number') return String(v).replace('.', ',');
+  return v;
+}
+function _dmRows(arr, cols) {
+  var aoa = [cols.map(function(c){ return c[0]; })];
+  (arr||[]).forEach(function(r){
+    aoa.push(cols.map(function(c){ return _dmFmt(r[c[1]]); }));
+  });
+  return aoa;
+}
+function dmExport(target) {
+  var ml = (typeof MESES!=='undefined' && MESES.length) ? MESES : ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
+  if (target === 'indicadores') {
+    var mk = []; var sample = (typeof DB!=='undefined' && DB[0]) ? DB[0] : {};
+    ml.forEach(function(m){ var k=m.toLowerCase(); if (sample.hasOwnProperty(k)) mk.push([m,k]); });
+    var cols = [['Diretoria','dir'],['Perspectiva','persp'],['Objetivo','obj'],['Indicador','ind'],['Meta','meta'],['Nível','nivel']].concat(mk);
+    return _dmDownload(_dmRows(DB, cols), 'Indicadores');
+  }
+  if (target === 'plano')
+    return _dmDownload(_dmRows(PLANO_DB, [['Status','status'],['Atividade','atividade'],['Responsável','responsavel'],['BSC','bsc'],['Prazo','prazo'],['Prioridade','prioridade']]), 'Plano_de_Acao');
+  if (target === 'contratos')
+    return _dmDownload(_dmRows(CONT_DB, [['Status','status'],['Processo','processo'],['Empresa','empresa'],['Modalidade','modalidade'],['Início','dt_inicio'],['Término','dt_fim'],['Mês Venc','mes_venc'],['Valor','valor'],['Saldo','saldo'],['Setor','setor'],['Fiscal','fiscal'],['Termo Aditivo','termo_aditivo']]), 'Contratos');
+  if (target === 'licitacoes')
+    return _dmDownload(_dmRows(LICIT_DB, [['PAE','pae'],['Objeto','objeto'],['Status','status'],['Etapa','etapa'],['Modalidade','modalidade'],['Valor','valor'],['Diretoria','diretoria'],['Última Tramitação','dt_ultima'],['Idade','idade']]), 'Licitacoes');
+  if (target === 'empresas') {
+    var hE = ['Empresa','Local','Fase','Situação','Setor','Área','Retomada','Escriturada'];
+    var aoaE = [hE];
+    (EMP_ALL||[]).forEach(function(r){ aoaE.push(hE.map(function(_,j){ return _dmFmt(r[j]); })); });
+    return _dmDownload(aoaE, 'Empresas');
+  }
+  if (target === 'metaspn') {
+    var hM = ['Indicador','Unidade','2026','2027','2028','2029','2030','Quinquenal'];
+    var aoaM = [hM];
+    (PN_DB||[]).forEach(function(r){ var m=r.metas||{};
+      aoaM.push([r.nome||'', r.unidade||'', _dmFmt(m['2026']), _dmFmt(m['2027']), _dmFmt(m['2028']), _dmFmt(m['2029']), _dmFmt(m['2030']), _dmFmt(r.quinquenal)]); });
+    return _dmDownload(aoaM, 'Metas_PN');
+  }
+  if (target === 'ditec') {
+    var itens = (typeof DITEC_OBRAS!=='undefined' && DITEC_OBRAS[0] && DITEC_OBRAS[0].itens) ? DITEC_OBRAS[0].itens : [];
+    return _dmDownload(_dmRows(itens, [['Item','item'],['Planejado','vp'],['Realizado','vr'],['%','pct'],['Duração','dur'],['Início','ini'],['Fim','fim']]), 'DITEC_Obras');
+  }
+  if (target === 'receitas' || target === 'despesas') {
+    var arr = target==='receitas' ? DAF_RECEITA_REAL : DAF_DESPESA_REAL;
+    var aoaD = [['Mês','Valor']];
+    for (var i=0;i<ml.length;i++){ aoaD.push([ml[i], _dmFmt(arr&&arr[i])]); }
+    return _dmDownload(aoaD, target==='receitas'?'Receitas_DAF':'Despesas_DAF');
+  }
+  if (target === 'orcamento') {
+    var keys = (typeof ORC_FULL!=='undefined' && ORC_FULL.length) ? Object.keys(ORC_FULL[0]) : [];
+    var aoaO = [keys];
+    (ORC_FULL||[]).forEach(function(r){ aoaO.push(keys.map(function(k){ return _dmFmt(r[k]); })); });
+    return _dmDownload(aoaO, 'Orcamento');
+  }
+  alert('Exportação não disponível para: ' + target);
+}
+
+
 // ── Trocar aba Excel/Link ─────────────────────────────────────────────────────
 function dmSwitchTab(tab) {
   DM_IMPORT_TAB = tab;
@@ -6488,6 +6571,29 @@ function _csBuildCharts(isDk) {
           <div class="dm-spinner"></div>
           <span id="dmProcessMsg">Lendo arquivo...</span>
         </div>
+      </div>
+      <!-- Botão exportar -->
+      <button class="dm-import-btn" onclick="dmToggleExport()" style="background:linear-gradient(90deg,#00C8A0,#4F8EFF)">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Exportar Dados
+      </button>
+      <div class="dm-import-section" id="dmExportSection">
+        <div class="dm-section-label" style="margin-top:0">Selecionar planilha para exportar</div>
+        <select class="dm-ds-selector" id="dmExportSelect">
+          <option value="">— Escolha qual planilha baixar —</option>
+          <option value="indicadores">Indicadores por Diretoria (DB)</option>
+          <option value="orcamento">Controle Orçamentário (ORC_FULL)</option>
+          <option value="contratos">Controle de Contratos (CONT_DB)</option>
+          <option value="licitacoes">Controle de Licitações (LICIT_DB)</option>
+          <option value="empresas">Acompanhamento de Empresas (EMP_ALL)</option>
+          <option value="plano">Plano de Ação (PLANO_DB)</option>
+          <option value="metaspn">Metas PN Consad (PN_DB)</option>
+          <option value="ditec">DITEC — Obras (DITEC_OBRAS)</option>
+          <option value="receitas">Receitas DAF (DAF_RECEITA_REAL)</option>
+          <option value="despesas">Despesas DAF (DAF_DESPESA_REAL)</option>
+        </select>
+        <button class="dm-url-btn" style="width:100%;margin-top:4px;background:#00C8A0" onclick="dmExportSelected()">⬇ Baixar planilha (.xlsx)</button>
+        <div style="font-size:10px;color:var(--text3);margin-top:8px;line-height:1.5">Baixa os dados atuais no formato da importação. Preencha/edite e reimporte pela opção "Importar Dados".</div>
       </div>
     </div>
   </div>
