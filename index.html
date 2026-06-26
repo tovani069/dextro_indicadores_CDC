@@ -1564,7 +1564,7 @@ function pedirSenha(onSubmit){
  setDateChip(null);
  setTimeout(function(){
   var _auto = (typeof SMARTSHEET_AUTO_SYNC!=='undefined' && SMARTSHEET_AUTO_SYNC);
-  carregarDoServidor({skipRender:_auto}).then(function(){ if (_auto) sincronizarSmartsheet(); });
+  carregarDoServidor().then(function(){ if (_auto) sincronizarSmartsheet(); });
  }, 0);
 })();
 
@@ -4749,10 +4749,12 @@ function sincronizarSmartsheet(opts) {
     results.forEach(function(rd){
       if (!rd || !rd.data || !rd.data.rows || !rd.data.rows.length) return;
       var job = rd.job, data = rd.data;
-      if (job.kind === 'ditec') { if (typeof _ssApplyDitecObra === 'function') _ssApplyDitecObra(data.rows, data.columns || [], job.idx); }
-      else if (job.target === 'empatend') { if (typeof _ssApplyEmpAtend === 'function') _ssApplyEmpAtend(data.rows); }
-      else if (typeof dmApply === 'function') { dmApply(job.target, data.rows, data.columns || [], 'Smartsheet'); if (typeof dmMarkUpdated === 'function') dmMarkUpdated(job.target); }
-      ok++;
+      try {
+        if (job.kind === 'ditec') { if (typeof _ssApplyDitecObra === 'function') _ssApplyDitecObra(data.rows, data.columns || [], job.idx); }
+        else if (job.target === 'empatend') { if (typeof _ssApplyEmpAtend === 'function') _ssApplyEmpAtend(data.rows); }
+        else if (typeof dmApply === 'function') { dmApply(job.target, data.rows, data.columns || [], 'Smartsheet'); if (typeof dmMarkUpdated === 'function') dmMarkUpdated(job.target); }
+        ok++;
+      } catch (e) { fail.push((job.target || ('ditec['+job.idx+']')) + ': ' + (e && e.message)); }
     });
   }).then(function(){
     window.__SS_SUPPRESS_REFRESH = false;
