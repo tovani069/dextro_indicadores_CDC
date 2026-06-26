@@ -1403,7 +1403,8 @@ function carregarDoLocal(){
   return false;
 }
 
-function carregarDoServidor(){
+function carregarDoServidor(opts){
+  opts = opts || {};
   return fetch('dados_app.json?v='+Date.now(),{cache:'no-store'})
     .then(r=>r.ok?r.json():null)
     .then(data=>{
@@ -1417,7 +1418,7 @@ function carregarDoServidor(){
       }
     })
     .catch(()=>{ carregarDoLocal(); })
-    .finally(()=>{ if(typeof render==='function') render(); });
+    .finally(()=>{ if(!opts.skipRender && typeof render==='function') render(); });
 }
 
 function salvarNoServidor(){
@@ -1557,7 +1558,10 @@ function pedirSenha(onSubmit){
 
 (function init(){
  setDateChip(null);
- carregarDoServidor().then(function(){ if (typeof SMARTSHEET_AUTO_SYNC!=='undefined' && SMARTSHEET_AUTO_SYNC) sincronizarSmartsheet(); });
+ setTimeout(function(){
+  var _auto = (typeof SMARTSHEET_AUTO_SYNC!=='undefined' && SMARTSHEET_AUTO_SYNC);
+  carregarDoServidor({skipRender:_auto}).then(function(){ if (_auto) sincronizarSmartsheet(); });
+ }, 0);
 })();
 
 
@@ -4663,23 +4667,27 @@ function sincronizarSmartsheet(opts) {
   if (typeof SMARTSHEET_DITEC !== 'undefined') Object.keys(SMARTSHEET_DITEC).forEach(function(i){ if(SMARTSHEET_DITEC[i]) jobs.push({kind:'ditec', idx:parseInt(i,10), id:SMARTSHEET_DITEC[i]}); });
   if (!jobs.length) {
     if (opts.alert) alert('Nenhuma planilha do Smartsheet configurada ainda.');
+    if (typeof render === 'function') render();
     return Promise.resolve(0);
   }
   if (opts.btn) { opts.btn.disabled = true; opts.btn.dataset.txt = opts.btn.textContent; opts.btn.textContent = '⏳ Sincronizando…'; }
   var ok = 0, fail = [];
-  return jobs.reduce(function(chain, job){
-    return chain.then(function(){
-      return fetch('/api/smartsheet?sheetId=' + encodeURIComponent(job.id), { cache:'no-store' })
-        .then(function(r){ return r.ok ? r.json() : r.json().then(function(e){ throw new Error(e.error || ('Erro '+r.status)); }); })
-        .then(function(data){
-          if (!data || !data.rows || !data.rows.length) return;
-          if (job.kind === 'ditec') { if (typeof _ssApplyDitecObra === 'function') _ssApplyDitecObra(data.rows, data.columns || [], job.idx); }
-          else if (typeof dmApply === 'function') { dmApply(job.target, data.rows, data.columns || [], 'Smartsheet'); if (typeof dmMarkUpdated === 'function') dmMarkUpdated(job.target); }
-          ok++;
-        })
-        .catch(function(e){ fail.push((job.target || ('ditec['+job.idx+']')) + ': ' + (e && e.message)); });
+  window.__SS_SUPPRESS_REFRESH = true;
+  return Promise.all(jobs.map(function(job){
+    return fetch('/api/smartsheet?sheetId=' + encodeURIComponent(job.id), { cache:'no-store' })
+      .then(function(r){ return r.ok ? r.json() : r.json().then(function(e){ throw new Error(e.error || ('Erro '+r.status)); }); })
+      .then(function(data){ return { job: job, data: data }; })
+      .catch(function(e){ fail.push((job.target || ('ditec['+job.idx+']')) + ': ' + (e && e.message)); return null; });
+  })).then(function(results){
+    results.forEach(function(rd){
+      if (!rd || !rd.data || !rd.data.rows || !rd.data.rows.length) return;
+      var job = rd.job, data = rd.data;
+      if (job.kind === 'ditec') { if (typeof _ssApplyDitecObra === 'function') _ssApplyDitecObra(data.rows, data.columns || [], job.idx); }
+      else if (typeof dmApply === 'function') { dmApply(job.target, data.rows, data.columns || [], 'Smartsheet'); if (typeof dmMarkUpdated === 'function') dmMarkUpdated(job.target); }
+      ok++;
     });
-  }, Promise.resolve()).then(function(){
+  }).then(function(){
+    window.__SS_SUPPRESS_REFRESH = false;
     if (typeof render === 'function') render();
     if (opts.btn) { opts.btn.disabled = false; opts.btn.textContent = opts.btn.dataset.txt || '🔄 Sincronizar com Smartsheet'; }
     if (opts.alert) {
@@ -5396,6 +5404,7 @@ function dmApplyDafSerie(rows, headers, mesCols, tipo) {
 
 // ── Refresh do módulo atual após importação ────────────────────────────────────
 function dmRefreshCurrentModule(target) {
+  if (window.__SS_SUPPRESS_REFRESH) return;   // durante auto-sync não troca de aba
   var MODULE_MAP = {
     indicadores: null,      // rerender main
     orcamento:   'orcamento',
