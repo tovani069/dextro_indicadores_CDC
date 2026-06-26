@@ -1358,6 +1358,8 @@ function montarPayloadCompleto(){
     dmRegistry: typeof DM_REGISTRY!=='undefined'?DM_REGISTRY:null,
     consadDb: typeof CONSAD_DB!=='undefined'?CONSAD_DB:null,
     meses: typeof MESES!=='undefined'?MESES:null,
+    eaDb: typeof EA_DB!=='undefined'?EA_DB:null,
+    eaKpi: typeof EA_KPI!=='undefined'?EA_KPI:null,
     savedAt: new Date().toISOString()
   };
 }
@@ -1391,6 +1393,8 @@ function aplicarPayload(p){
   if(typeof DM_REGISTRY!=='undefined' && Array.isArray(p.dmRegistry)) _replaceArray(DM_REGISTRY, p.dmRegistry);
   if(typeof CONSAD_DB!=='undefined' && p.consadDb) _replaceObject(CONSAD_DB, p.consadDb);
   if(typeof MESES!=='undefined' && Array.isArray(p.meses)) _replaceArray(MESES, p.meses);
+  if(typeof EA_DB!=='undefined' && Array.isArray(p.eaDb)) _replaceArray(EA_DB, p.eaDb);
+  if(typeof EA_KPI!=='undefined' && p.eaKpi) _replaceObject(EA_KPI, p.eaKpi);
 }
 
 function carregarDoLocal(){
@@ -4618,6 +4622,7 @@ var SMARTSHEET_SHEETS = {
   contratos:   '',
   licitacoes:  '',
   empresas:    '555483967842180',  // Acompanhamento de Empresas
+  empatend:    '52780693671812',   // Empresas em Atendimento (DAIN)
   metaspn:     '',
   ditec:       '',
   receitas:    '',
@@ -4659,6 +4664,68 @@ function _ssApplyDitecObra(rows, headers, idx) {
   o.exec_geral = tv>0 ? Math.round(tr/tv*1000)/10 : 0;
 }
 
+// ── Empresas em Atendimento (DAIN) — sincronização do Smartsheet ──
+// Mapeia a planilha para EA_DB (array de arrays) e recalcula EA_KPI.
+function _eaKpiRecompute() {
+  if (typeof EA_KPI === 'undefined' || typeof EA_DB === 'undefined') return;
+  var byYear = {2022:0,2023:0,2024:0,2025:0,2026:0};
+  var aten2026 = [0,0,0,0,0,0,0,0,0,0,0,0];
+  var fases = {}, inic = {}, paises = {};
+  var apoio = 0, capt = 0, efet = 0;
+  EA_DB.forEach(function(r){
+    var ano = parseInt(r[1], 10);
+    if (byYear[ano] !== undefined) byYear[ano]++;
+    var mes = parseInt(r[2], 10);
+    if (ano === 2026 && mes >= 1 && mes <= 12) aten2026[mes-1]++;
+    if (r[15]) apoio++; if (r[16]) capt++; if (r[17]) efet++;
+    if (r[7])  fases[r[7]]   = (fases[r[7]]   || 0) + 1;
+    if (r[10]) inic[r[10]]   = (inic[r[10]]   || 0) + 1;
+    if (r[11]) paises[r[11]] = (paises[r[11]] || 0) + 1;
+  });
+  EA_KPI.total = EA_DB.length;
+  EA_KPI.apoio = apoio; EA_KPI.captacao = capt; EA_KPI.efetivacao = efet;
+  EA_KPI.ativos2026 = byYear[2026];
+  EA_KPI.anos_labels = ['2022','2023','2024','2025','2026'];
+  EA_KPI.anos_vals = [byYear[2022],byYear[2023],byYear[2024],byYear[2025],byYear[2026]];
+  EA_KPI.aten_2026 = aten2026;
+  EA_KPI.fases = fases; EA_KPI.iniciativas = inic; EA_KPI.paises = paises;
+}
+function _ssApplyEmpAtend(rows) {
+  if (typeof EA_DB === 'undefined') return;
+  function g(row, name){ var v = row[name]; return (v==null)?'':String(v).trim(); }
+  function clean(v){ return (v && v.charAt(0) !== '#') ? v : ''; }   // remove erros tipo #INVALID
+  function flag(v){ v = String(v||'').trim().toLowerCase(); return (v==='true'||v==='1'||v==='sim'||v==='x'||v==='verdadeiro')?1:0; }
+  function parseDate(s){
+    s = String(s||'').trim(); if(!s) return {ano:'',mes:'',iso:''};
+    var m = s.match(/^(\d{1,2})\/(\d{1,2})\/(\d{2,4})$/);
+    if (m){ var d=('0'+m[1]).slice(-2), mo=('0'+m[2]).slice(-2), y=m[3]; if(y.length===2) y='20'+y; return {ano:y, mes:String(parseInt(mo,10)), iso:y+'-'+mo+'-'+d}; }
+    var m2 = s.match(/^(\d{4})-(\d{1,2})-(\d{1,2})/);
+    if (m2){ var mo2=('0'+m2[2]).slice(-2), d2=('0'+m2[3]).slice(-2); return {ano:m2[1], mes:String(parseInt(m2[2],10)), iso:m2[1]+'-'+mo2+'-'+d2}; }
+    return {ano:'',mes:'',iso:s};
+  }
+  var out = [];
+  rows.forEach(function(row){
+    var emp = g(row,'Empresa');
+    if (!emp || emp.length < 2 || /^\d{4}$/.test(emp)) return;
+    var dt = parseDate(g(row,'Data de Atendimento'));
+    var ano = dt.ano || g(row,'ANO') || g(row,'ANO INVEST');
+    var mes = dt.mes || g(row,'MÊS');
+    out.push([
+      emp, ano, mes, dt.iso,
+      g(row,'Município pretendido'), clean(g(row,'Setor')), g(row,'Sub Setor'),
+      g(row,'Fase do projeto'), g(row,'Estágio/Etapa'), g(row,'Interesse'),
+      g(row,'Iniciativa'), g(row,'País de Origem'), g(row,'Descrição do projeto'),
+      g(row,'Responsável pelo atendimento'), g(row,'Tipo de ação'),
+      flag(g(row,'Apoio')), flag(g(row,'Captação (Novos Clientes)')), flag(g(row,'Efet. Aquisição (Pagto. Sinal)')),
+      g(row,'PAE')
+    ]);
+  });
+  if (!out.length) return;
+  EA_DB.length = 0; Array.prototype.push.apply(EA_DB, out);
+  _eaKpiRecompute();
+}
+
+
 // Sincroniza do Smartsheet as bases que têm ID configurado (reusa o importador dmApply).
 function sincronizarSmartsheet(opts) {
   opts = opts || {};
@@ -4683,6 +4750,7 @@ function sincronizarSmartsheet(opts) {
       if (!rd || !rd.data || !rd.data.rows || !rd.data.rows.length) return;
       var job = rd.job, data = rd.data;
       if (job.kind === 'ditec') { if (typeof _ssApplyDitecObra === 'function') _ssApplyDitecObra(data.rows, data.columns || [], job.idx); }
+      else if (job.target === 'empatend') { if (typeof _ssApplyEmpAtend === 'function') _ssApplyEmpAtend(data.rows); }
       else if (typeof dmApply === 'function') { dmApply(job.target, data.rows, data.columns || [], 'Smartsheet'); if (typeof dmMarkUpdated === 'function') dmMarkUpdated(job.target); }
       ok++;
     });
