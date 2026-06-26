@@ -5087,7 +5087,7 @@ function dmApplyIndicadores(rows, headers, mesCols) {
 }
 
 function dmApplyOrcamento(rows, headers, mesCols) {
-  var ACUM_COLS  = headers.filter(function(h){ return /jan[-_]abr|jan[-_]mar|jan[-_]fev|^jan$/i.test(h.trim()); });
+  var ACUM_COLS  = headers.filter(function(h){ return /^jan([-_](fev|mar|abr|mai|jun|jul|ago|set|out|nov|dez))?$/i.test(h.trim()); });
   var nomeCol    = dmFindCol(headers, ['nome da ação','nome_acao','acao','programa','nome']);
   var elemCol    = dmFindCol(headers, ['elemento de despesa','elemento','natureza']);
   var codCol     = dmFindCol(headers, ['cód','cod','código','code']);
