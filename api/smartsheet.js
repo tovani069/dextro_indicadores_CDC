@@ -45,9 +45,18 @@ module.exports = async (req, res) => {
       (row.cells || []).forEach(cell => {
         const title = idToTitle[cell.columnId];
         if (title) {
-          o[title] = (cell.displayValue != null && cell.displayValue !== '')
-            ? cell.displayValue
-            : (cell.value != null ? cell.value : '');
+          const raw = cell.value;
+          if (typeof raw === 'number') {
+            // número cru em formato BR (vírgula decimal, sem separador de milhar)
+            // para o parser do dashboard (dmNum) ler corretamente.
+            o[title] = String(raw).replace('.', ',');
+          } else if (typeof raw === 'boolean') {
+            o[title] = raw ? 'TRUE' : 'FALSE';
+          } else {
+            o[title] = (cell.displayValue != null && cell.displayValue !== '')
+              ? cell.displayValue
+              : (raw != null ? raw : '');
+          }
         }
       });
       return o;
