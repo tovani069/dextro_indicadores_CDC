@@ -4609,11 +4609,11 @@ function dmToggleImport() {
 // Deixe '' (vazio) o que ainda não estiver no Smartsheet.
 var SMARTSHEET_SHEETS = {
   plano:       '6204031643897732',  // Plano de Ação Padrão Dextro CODEC
-  indicadores: '',
+  indicadores: '2553430028537732',  // Visão Geral (Indicadores por Diretoria)
   orcamento:   '',
   contratos:   '',
   licitacoes:  '',
-  empresas:    '',
+  empresas:    '555483967842180',  // Acompanhamento de Empresas
   metaspn:     '',
   ditec:       '',
   receitas:    '',
@@ -4623,28 +4623,61 @@ var SMARTSHEET_SHEETS = {
 // e o dashboard passa a sincronizar automaticamente ao abrir.
 var SMARTSHEET_AUTO_SYNC = false;
 
+// DITEC tem várias obras; cada índice de DITEC_OBRAS vem de uma planilha própria.
+// 0 = DI Castanhal · 1 = DI Breves · 2 = ZPE Barcarena
+var SMARTSHEET_DITEC = {
+  0: '3986114623786884',  // DI Castanhal
+  1: '',                   // DI Breves
+  2: ''                    // ZPE Barcarena
+};
+// Aplica os itens de uma planilha do Smartsheet numa obra específica do DITEC_OBRAS.
+function _ssApplyDitecObra(rows, headers, idx) {
+  if (typeof DITEC_OBRAS === 'undefined' || !DITEC_OBRAS[idx]) return;
+  var f = function(pats){ return dmFindCol(headers, pats); };
+  var itemCol=f(['item','serviço','etapa','descrição']), vpCol=f(['planejado','vp','valor planejado','contratado']),
+      vrCol=f(['realizado','vr','valor realizado','executado']), pctCol=f(['%','pct','percentual','execução']),
+      durCol=f(['duração','dias','dur','prazo']), iniCol=f(['início','inicio','data início','data_ini']),
+      fimCol=f(['fim','término','termino','data fim','data_fim']);
+  var newItems = [];
+  rows.forEach(function(row){
+    var item = itemCol ? dmStr(row[itemCol]) : '';
+    if(!item) return;
+    newItems.push({ item:item, vp:vpCol?dmNum(row[vpCol]):0, vr:vrCol?dmNum(row[vrCol]):0,
+      pct:pctCol?dmNum(row[pctCol]):0, dur:durCol?dmNum(row[durCol]):30,
+      ini:iniCol?dmStr(row[iniCol]):'2026-04-01', fim:fimCol?dmStr(row[fimCol]):'2026-12-31' });
+  });
+  if(!newItems.length) return;
+  var o = DITEC_OBRAS[idx];
+  o.itens = newItems;
+  var tv = newItems.reduce(function(s,r){ return s+r.vp; },0);
+  var tr = newItems.reduce(function(s,r){ return s+r.vr; },0);
+  o.valor_total = tv; o.valor_realizado = tr;
+  o.exec_geral = tv>0 ? Math.round(tr/tv*1000)/10 : 0;
+}
+
 // Sincroniza do Smartsheet as bases que têm ID configurado (reusa o importador dmApply).
 function sincronizarSmartsheet(opts) {
   opts = opts || {};
-  var targets = Object.keys(SMARTSHEET_SHEETS).filter(function(k){ return SMARTSHEET_SHEETS[k]; });
-  if (!targets.length) {
+  var jobs = [];
+  Object.keys(SMARTSHEET_SHEETS).forEach(function(t){ if(SMARTSHEET_SHEETS[t]) jobs.push({kind:'simple', target:t, id:SMARTSHEET_SHEETS[t]}); });
+  if (typeof SMARTSHEET_DITEC !== 'undefined') Object.keys(SMARTSHEET_DITEC).forEach(function(i){ if(SMARTSHEET_DITEC[i]) jobs.push({kind:'ditec', idx:parseInt(i,10), id:SMARTSHEET_DITEC[i]}); });
+  if (!jobs.length) {
     if (opts.alert) alert('Nenhuma planilha do Smartsheet configurada ainda.');
     return Promise.resolve(0);
   }
   if (opts.btn) { opts.btn.disabled = true; opts.btn.dataset.txt = opts.btn.textContent; opts.btn.textContent = '⏳ Sincronizando…'; }
   var ok = 0, fail = [];
-  return targets.reduce(function(chain, target){
+  return jobs.reduce(function(chain, job){
     return chain.then(function(){
-      return fetch('/api/smartsheet?sheetId=' + encodeURIComponent(SMARTSHEET_SHEETS[target]), { cache:'no-store' })
+      return fetch('/api/smartsheet?sheetId=' + encodeURIComponent(job.id), { cache:'no-store' })
         .then(function(r){ return r.ok ? r.json() : r.json().then(function(e){ throw new Error(e.error || ('Erro '+r.status)); }); })
         .then(function(data){
-          if (data && data.rows && data.rows.length && typeof dmApply === 'function') {
-            dmApply(target, data.rows, data.columns || [], 'Smartsheet');
-            if (typeof dmMarkUpdated === 'function') dmMarkUpdated(target);
-            ok++;
-          }
+          if (!data || !data.rows || !data.rows.length) return;
+          if (job.kind === 'ditec') { if (typeof _ssApplyDitecObra === 'function') _ssApplyDitecObra(data.rows, data.columns || [], job.idx); }
+          else if (typeof dmApply === 'function') { dmApply(job.target, data.rows, data.columns || [], 'Smartsheet'); if (typeof dmMarkUpdated === 'function') dmMarkUpdated(job.target); }
+          ok++;
         })
-        .catch(function(e){ fail.push(target + ': ' + (e && e.message)); });
+        .catch(function(e){ fail.push((job.target || ('ditec['+job.idx+']')) + ': ' + (e && e.message)); });
     });
   }, Promise.resolve()).then(function(){
     if (typeof render === 'function') render();
