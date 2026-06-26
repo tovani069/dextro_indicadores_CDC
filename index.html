@@ -4621,7 +4621,7 @@ var SMARTSHEET_SHEETS = {
 };
 // Quando TODAS as planilhas estiverem mapeadas acima, mude para true
 // e o dashboard passa a sincronizar automaticamente ao abrir.
-var SMARTSHEET_AUTO_SYNC = false;
+var SMARTSHEET_AUTO_SYNC = true;
 
 // DITEC tem várias obras; cada índice de DITEC_OBRAS vem de uma planilha própria.
 // 0 = DI Castanhal · 1 = DI Breves · 2 = ZPE Barcarena
@@ -6595,11 +6595,7 @@ function _csBuildCharts(isDk) {
       <div class="dm-section-label">Publicar alterações</div>
       <button class="dm-save-btn" onclick="salvarNoServidor()">💾 Salvar dados para todos</button>
       <div class="dm-save-hint">Salva tudo o que foi importado/editado para o servidor (pede senha). Todos que abrem o link passam a ver os dados novos.</div>
-      <button class="dm-import-btn" onclick="sincronizarSmartsheetBtn(this)" style="background:linear-gradient(90deg,#FF9B00,#FF40A0);margin-top:0">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2v6h-6"/><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M3 22v-6h6"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/></svg>
-        🔄 Sincronizar com Smartsheet
-      </button>
-      <div class="dm-save-hint">Puxa do Smartsheet as planilhas já conectadas (hoje: Plano de Ação). Depois salve para publicar.</div>
+      <div class="dm-save-hint">🔄 As planilhas conectadas ao Smartsheet são atualizadas <b>automaticamente</b> toda vez que o dashboard é aberto ou recarregado.</div>
       <!-- Repositório de datasets -->
       <div class="dm-section-label">Repositório de Planilhas</div>
       <div id="dmDatasetList"></div>
