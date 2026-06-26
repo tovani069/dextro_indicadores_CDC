@@ -1557,7 +1557,7 @@ function pedirSenha(onSubmit){
 
 (function init(){
  setDateChip(null);
- carregarDoServidor();
+ carregarDoServidor().then(function(){ if (typeof SMARTSHEET_AUTO_SYNC!=='undefined' && SMARTSHEET_AUTO_SYNC) sincronizarSmartsheet(); });
 })();
 
 
@@ -4604,6 +4604,62 @@ function dmToggleImport() {
   }
 }
 
+// ── SMARTSHEET (API) ───────────────────────────────────────────────
+// Mapa: cada base do dashboard -> ID da planilha no Smartsheet.
+// Deixe '' (vazio) o que ainda não estiver no Smartsheet.
+var SMARTSHEET_SHEETS = {
+  plano:       '6204031643897732',  // Plano de Ação Padrão Dextro CODEC
+  indicadores: '',
+  orcamento:   '',
+  contratos:   '',
+  licitacoes:  '',
+  empresas:    '',
+  metaspn:     '',
+  ditec:       '',
+  receitas:    '',
+  despesas:    ''
+};
+// Quando TODAS as planilhas estiverem mapeadas acima, mude para true
+// e o dashboard passa a sincronizar automaticamente ao abrir.
+var SMARTSHEET_AUTO_SYNC = false;
+
+// Sincroniza do Smartsheet as bases que têm ID configurado (reusa o importador dmApply).
+function sincronizarSmartsheet(opts) {
+  opts = opts || {};
+  var targets = Object.keys(SMARTSHEET_SHEETS).filter(function(k){ return SMARTSHEET_SHEETS[k]; });
+  if (!targets.length) {
+    if (opts.alert) alert('Nenhuma planilha do Smartsheet configurada ainda.');
+    return Promise.resolve(0);
+  }
+  if (opts.btn) { opts.btn.disabled = true; opts.btn.dataset.txt = opts.btn.textContent; opts.btn.textContent = '⏳ Sincronizando…'; }
+  var ok = 0, fail = [];
+  return targets.reduce(function(chain, target){
+    return chain.then(function(){
+      return fetch('/api/smartsheet?sheetId=' + encodeURIComponent(SMARTSHEET_SHEETS[target]), { cache:'no-store' })
+        .then(function(r){ return r.ok ? r.json() : r.json().then(function(e){ throw new Error(e.error || ('Erro '+r.status)); }); })
+        .then(function(data){
+          if (data && data.rows && data.rows.length && typeof dmApply === 'function') {
+            dmApply(target, data.rows, data.columns || [], 'Smartsheet');
+            if (typeof dmMarkUpdated === 'function') dmMarkUpdated(target);
+            ok++;
+          }
+        })
+        .catch(function(e){ fail.push(target + ': ' + (e && e.message)); });
+    });
+  }, Promise.resolve()).then(function(){
+    if (typeof render === 'function') render();
+    if (opts.btn) { opts.btn.disabled = false; opts.btn.textContent = opts.btn.dataset.txt || '🔄 Sincronizar com Smartsheet'; }
+    if (opts.alert) {
+      if (fail.length) alert('Sincronizado: ' + ok + '.\nFalhas:\n' + fail.join('\n'));
+      else alert('✅ Sincronizado com o Smartsheet (' + ok + ' planilha' + (ok!==1?'s':'') + ').');
+    }
+    return ok;
+  });
+}
+function sincronizarSmartsheetBtn(btn) {
+  sincronizarSmartsheet({ alert: true, btn: btn });
+}
+
 function dmToggleExport() {
   var sec = document.getElementById('dmExportSection');
   if (!sec) return;
@@ -6506,6 +6562,11 @@ function _csBuildCharts(isDk) {
       <div class="dm-section-label">Publicar alterações</div>
       <button class="dm-save-btn" onclick="salvarNoServidor()">💾 Salvar dados para todos</button>
       <div class="dm-save-hint">Salva tudo o que foi importado/editado para o servidor (pede senha). Todos que abrem o link passam a ver os dados novos.</div>
+      <button class="dm-import-btn" onclick="sincronizarSmartsheetBtn(this)" style="background:linear-gradient(90deg,#FF9B00,#FF40A0);margin-top:0">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2v6h-6"/><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M3 22v-6h6"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/></svg>
+        🔄 Sincronizar com Smartsheet
+      </button>
+      <div class="dm-save-hint">Puxa do Smartsheet as planilhas já conectadas (hoje: Plano de Ação). Depois salve para publicar.</div>
       <!-- Repositório de datasets -->
       <div class="dm-section-label">Repositório de Planilhas</div>
       <div id="dmDatasetList"></div>
