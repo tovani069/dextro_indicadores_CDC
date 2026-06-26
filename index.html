@@ -3612,7 +3612,7 @@ function renderOrcamento(mc){
     '<div class="chart-card" style="margin-bottom:14px">'+
       '<div class="chart-header">'+
         '<span class="chart-title">Evolução Acumulada da Execução Orçamentária — 2026</span>'+
-        '<span class="chart-subtitle mono">Jan → Abr · acumulado mensal por fonte de recurso</span>'+
+        '<span class="chart-subtitle mono">Acumulado mensal por fonte de recurso</span>'+
       '</div>'+
       '<div style="position:relative;height:260px"><canvas id="oc7"></canvas></div>'+
     '</div>'+
@@ -3866,8 +3866,12 @@ function buildOrcCharts(isDk){
   var el7=document.getElementById('oc7');
   if(el7){
     var _base7=(_orcFilteredRows&&_orcFilteredRows.length)?_orcFilteredRows:ORC_FULL;
-    var _meses7=['Jan','Jan–Fev','Jan–Mar','Jan–Abr'];
-    var _fields=['jan','jan_fev','jan_mar','jan_abr'];
+    var _allM7=['Jan','Jan–Fev','Jan–Mar','Jan–Abr','Jan–Mai','Jan–Jun','Jan–Jul','Jan–Ago','Jan–Set','Jan–Out','Jan–Nov','Jan–Dez'];
+    var _allF7=['jan','jan_fev','jan_mar','jan_abr','jan_mai','jan_jun','jan_jul','jan_ago','jan_set','jan_out','jan_nov','jan_dez'];
+    var _lastM7=0;
+    for(var _mi7=0;_mi7<_allF7.length;_mi7++){ var _s7=ORC_FULL.reduce(function(s,r){var v=r[_allF7[_mi7]];return s+(typeof v==='number'&&v>0?v:0);},0); if(_s7>0)_lastM7=_mi7; }
+    var _meses7=_allM7.slice(0,_lastM7+1);
+    var _fields=_allF7.slice(0,_lastM7+1);
     var _fontes7=['Receita Própria','Superavit','Tesouro','Total'];
     var _cores7=['#4F8EFF','#00C8A0','#FF9B00','#6C3FFF'];
     var _dashes7=[false,false,false,[6,3]]; // Total = tracejado
@@ -5162,6 +5166,14 @@ function dmApplyOrcamento(rows, headers, mesCols) {
       jan_fev:      getAcum('fev'),
       jan_mar:      getAcum('mar'),
       jan_abr:      getAcum('abr'),
+      jan_mai:      getAcum('mai'),
+      jan_jun:      getAcum('jun'),
+      jan_jul:      getAcum('jul'),
+      jan_ago:      getAcum('ago'),
+      jan_set:      getAcum('set'),
+      jan_out:      getAcum('out'),
+      jan_nov:      getAcum('nov'),
+      jan_dez:      getAcum('dez'),
       exec_acum:    execA,
       disponibilidade: disp,
       pct_exec:     pct,
